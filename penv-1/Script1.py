@@ -17,9 +17,10 @@ class Marcador():
         self.sets_ganados = [0,0]
         self.juego = 0
         self.juegos_ganados = [0,0]
-        self.dict_puntos = (15,30,40,"Adv")
+        self.dict_puntos = (0,15,30,40,"Adv")
         self.puntos = [0,0]
         self.saque = True
+        self.ganador = -1
     '''
     Marca un punto para el jugador indicado
 
@@ -110,7 +111,8 @@ class Marcador():
 
     '''
     def __declararGanador(self, ganador):
-        print("Juego terminado. Ganador: " + self.nombre_jugadores(ganador))
+        print("Juego terminado. Ganador: " + self.nombre_jugadores[ganador])
+        self.ganador = ganador
 
     def Reiniciar(self):
         self.puntos[0] = self.puntos[1] = 0
@@ -145,3 +147,10 @@ class Marcador():
     ## Marcar set
     def MarcarSet(self, jugador):
         self.__marcarSet(jugador)
+
+    def ImprimirMarcador(self):
+        print("===== MARCADOR =====")
+        print("\t" + self.nombre_jugadores[0]+"\t"+self.nombre_jugadores[1])
+        print("SETS:\t" + str(self.sets_ganados[0]) +"\t"+ str(self.sets_ganados[1]) + "\tMEJOR DE " + str(self.sets))
+        print("JUEGOS:\t" + str(self.juegos_ganados[0])+"\t"+str(self.juegos_ganados[1]))
+        print("PUNTOS:\t" +str(self.dict_puntos[self.puntos[0]])+"\t"+str(self.dict_puntos[self.puntos[1]]))

@@ -94,3 +94,25 @@ def test_ganar_set():
     assert marcador.GetJuegosJugador(0) == 0
     assert marcador.GetJuegosJugador(1) == 0
     assert marcador.GetSetsJugador(1) == 1
+
+##Prueba de juego terminado
+def test_ganador():
+    marcador = Marcador(4)
+    marcador.SetSetsJugador(0,2)
+    marcador.SetSetsJugador(1,2)
+    marcador.MarcarSet(0)
+
+    assert marcador.ganador == 0
+
+##Prueba del formato del marcador
+def test_imprimir_marcadores():
+    marcador = Marcador()
+    marcador.SetPuntosJugador(0,4)
+    marcador.SetPuntosJugador(1,3)
+    marcador.SetJuegosJugador(0,3)
+    marcador.SetJuegosJugador(1,4)
+    marcador.SetSetsJugador(0,1)
+    marcador.SetSetsJugador(1,1)
+    marcador.ImprimirMarcador()
+
+    assert False, "Esta prueba falla deliberadamente para imprimir en consola el marcador"
