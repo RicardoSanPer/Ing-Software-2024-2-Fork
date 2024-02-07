@@ -13,6 +13,7 @@ class Marcador():
         self.puntos[jugador] += 1
         contricante = 0 if jugador == 1 else 1
 
+        print("Punto para: " + self.nombre_jugadores(jugador))
         
         ##Si el jugador anota y no entra en ventaja, otorgar juego
         if(self.puntos[jugador] == 4 and self.puntos[contricante] < 3):
@@ -35,6 +36,38 @@ class Marcador():
         self.puntos[0] = 0
         self.puntos[1] = 0
 
+        print("Juego para " + self.nombre_jugadores(jugador))
+
+        contricante = 0 if jugador == 1 else 1
+
         ##Cambio de saque
         self.juego += 1
         if self.juego % 2 == 1: self.saque = not self.saque
+
+        ## Para ganar un set, el jugador debe tener al menos 6 juegos y una diferencia de 2
+        ## respecto al contricante
+        if(self.juegos_ganados[0] < 6 and self.juegos_ganados[1] < 6):
+            return
+        
+        if(abs(self.juegos_ganados[jugador] - self.juegos_ganados[contricante]) > 1):
+            self.marcarSet(jugador)
+
+    def marcarSet(self, jugador):
+        self.juegos_ganados[0] = 0
+        self.juegos_ganados[1] = 0
+
+        self.sets_ganados[jugador] += 1
+
+        print("Set para " + self.nombre_jugadores(jugador))
+
+        ## Minimo de sets que se deben tener para ganar
+        minimo = (self.sets - 1)/2 + 1
+
+        if(self.sets_ganados[0] >= minimo):
+            self.declararGanador(0)
+        
+        elif(self.sets_ganados[1] >= minimo):
+            self.declararGanador(1)
+        
+    def declararGanador(self, ganador):
+        print("Juego terminado. Ganador: " + self.nombre_jugadores(ganador))
