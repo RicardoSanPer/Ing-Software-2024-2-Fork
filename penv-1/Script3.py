@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 maxIterations = 256
 
 ## Rangos de la grafica
+## Por defecto el rango es -2.0, 0.5 para x y -1.15, 1.15 para ver el fractal completo.
+## Se pueden modificar para visualizar diferentes secciones (como hacer zoom) del mismo
 xmin = -2.0
 xmax = 0.50
 
@@ -19,6 +21,7 @@ vals = []
 for j in range(0, yresolution):
     row = []
     for i in range(0, xresolution):
+        ## Transformar a coodernadas dentro del rango
         x0 = xmin + i*((xmax - xmin)/ xresolution)
         y0 = ymin + j*((ymax - ymin)/ yresolution)
 
