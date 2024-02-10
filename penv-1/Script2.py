@@ -46,13 +46,33 @@ def Caminante(camino):
     return cuentaValles
 
 class ArbolBinarioOrdenado():
-
+    '''
+    Clase arbol binario ordenado
+    '''
     def __init__(self, valor = None):
         self.valor = valor
         self.izquierdo = None
         self.derecho = None
 
-    def Insertar(self, valor):
+    '''
+    Insertar una lista de elementos en el arbol
+
+    Params
+    ------
+    valores : Lista de valores a insertar
+    '''
+    def insertarLista(self, valores):
+        for v in valores:
+            self.Insertar(v)
+
+    '''
+    Insertar elementos en el arbol
+
+    Params
+    ------
+    valor : Valor a insertar
+    '''
+    def insertar(self, valor):
         ## Si el nodo esta vacio
         if self.valor == None:
             self.valor = valor
@@ -73,3 +93,68 @@ class ArbolBinarioOrdenado():
                     self.izquierdo = ArbolBinarioOrdenado(valor)
                 else:
                     self.izquierdo.Insertar(valor)
+
+    '''
+    Recorrido pre-orden del arbol
+
+    Returns
+    -------
+    list : Lista de los elementos en pre-orden
+    '''
+    def preorden(self):
+        if self.valor == None:
+            return []
+        
+        lista = [self.valor]
+        if self.izquierdo != None:
+            lista = lista + self.izquierdo.Preorden()
+        if self.derecho != None:
+            lista = lista + self.derecho.Preorden()
+        
+        return lista
+    
+    '''
+    Recorrido in-orden del arbol
+
+    Returns
+    -------
+    list : Lista de los elementos en in-orden
+    '''
+    def inorden(self):
+        lista = []
+
+        if self.valor == None:
+            return lista
+
+        if self.izquierdo != None:
+            lista = lista + self.izquierdo.Inorden()
+
+        lista = lista + [self.valor]
+
+        if self.derecho != None:
+            lista = lista + self.derecho.Inorden()
+
+        return lista
+    
+    '''
+    Recorrido post-orden del arbol
+
+    Returns
+    -------
+    list : Lista de los elementos en post-orden
+    '''
+    def postorden(self):
+        lista = []
+
+        if self.valor == None:
+            return lista
+
+        if self.izquierdo != None:
+            lista = lista + self.izquierdo.Postorden()
+
+        if self.derecho != None:
+            lista = lista + self.derecho.Postorden()
+        
+        lista = lista + [self.valor]
+
+        return lista
