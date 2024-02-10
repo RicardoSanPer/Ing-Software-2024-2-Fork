@@ -2,17 +2,20 @@ import matplotlib.pyplot as plt
 
 maxIterations = 256
 
+## Rangos de la grafica
 xmin = -2.0
 xmax = 0.50
 
 ymin = -1.15
 ymax = 1.15
 
-xresolution = 200
-yresolution = 200
+## Muestreos discretos. Basicamente la resolucion de la gráfica
+xresolution = 256
+yresolution = 256
 
 vals = []
 
+## Calcular el valor de cada muestra
 for j in range(0, yresolution):
     row = []
     for i in range(0, xresolution):
@@ -32,5 +35,8 @@ for j in range(0, yresolution):
         row.append(iteration / maxIterations)
     vals.append(row)
 
-plt.imshow(vals, cmap="hot", interpolation="nearest", extent=(xmin, xmax, ymin,ymax))
+## Graficar como mapa de calor
+plt.imshow(vals, cmap="magma", interpolation="nearest", extent=(xmin, xmax, ymin,ymax))
+plt.colorbar()
+plt.title("Conjunto de Mandelbrot")
 plt.show()
