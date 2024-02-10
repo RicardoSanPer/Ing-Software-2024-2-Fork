@@ -44,4 +44,32 @@ def Caminante(camino):
             cuentaValles += 1
 
     return cuentaValles
-    
+
+class ArbolBinarioOrdenado():
+
+    def __init__(self, valor = None):
+        self.valor = valor
+        self.izquierdo = None
+        self.derecho = None
+
+    def Insertar(self, valor):
+        ## Si el nodo esta vacio
+        if self.valor == None:
+            self.valor = valor
+            return 
+        ## Si el nodo ya existe, no hacer nada
+        if self.valor == valor:
+            return
+        
+        ## Insertar en los hijos
+        else:
+            if valor > self.valor:
+                if self.derecho == None:
+                    self.derecho = ArbolBinarioOrdenado(valor)
+                else:
+                    self.derecho.Insertar(valor)
+            else:
+                if self.izquierdo == None:
+                    self.izquierdo = ArbolBinarioOrdenado(valor)
+                else:
+                    self.izquierdo.Insertar(valor)
