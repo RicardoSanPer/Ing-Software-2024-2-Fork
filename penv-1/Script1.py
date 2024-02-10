@@ -108,7 +108,8 @@ class Marcador():
 
         ##Cambio de cancha
         self.juego += 1
-        if self.juego % 2 == 1: 
+        if self.juego % 2 == 1:
+            print("\n======> Cambio de cancha\n") 
             self.cambioCancha = not self.cambioCancha
 
         ## Para ganar un set, el jugador debe tener al menos 6 juegos y una diferencia de 2

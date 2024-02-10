@@ -18,3 +18,8 @@ ejecuta con 3).
 
 Para indicar el jugador que anota un punto, se debe ingresar su nombre. El programa no distingue entre mayusculas
 y minusculas.
+
+## Notas
+
+El jugador que saca se denota por 🎾 a un lado de su nombre. El cambio de cancha de denota por el cambio del
+orden de los nombres en el marcador.
