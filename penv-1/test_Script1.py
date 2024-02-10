@@ -116,3 +116,10 @@ def test_imprimir_marcadores():
     marcador.ImprimirMarcador()
 
     assert False, "Esta prueba falla deliberadamente para imprimir en consola el marcador"
+
+## Prueba para marcar punto por nombre de jugador
+def test_punto_por_nombre():
+    marcador = Marcador()
+    marcador.JugadorAnota("Fulano")
+
+    assert marcador.GetPuntosJugador(0) == 1

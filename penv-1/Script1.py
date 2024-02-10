@@ -12,6 +12,13 @@ class Marcador():
     jugador2 : Nombre del segundo jugador
     '''
     def __init__(self, numeroSets = 3, jugador1 = "Fulano", jugador2 = "Zutano"):
+
+        jugador1 = jugador1.strip()
+        jugador2 = jugador2.strip()
+
+        ##Si ambos jugadores tienen el mismo nombre, agregar un 2 al final del nombre del segundo
+        jugador2 = jugador2 + "-2" if jugador1.lower() == jugador2.lower() or jugador1 == jugador2 else jugador2
+
         self.sets = numeroSets if numeroSets % 2 != 0 else numeroSets + 1
         self.nombre_jugadores = (jugador1, jugador2)
         self.sets_ganados = [0,0]
@@ -19,8 +26,37 @@ class Marcador():
         self.juegos_ganados = [0,0]
         self.dict_puntos = (0,15,30,40,"Adv")
         self.puntos = [0,0]
-        self.saque = True
+        self.cambioSaque = False
+        self.cambioCancha = False
         self.ganador = -1
+
+    '''
+    Anota un punto para el jugador indicado
+
+    Params
+    ------
+    nombre : nombre del jugador
+
+    Returns
+    -------
+    bool : indica si se anoto el punto o no (ie no hay un jugador con el nombre indicado)
+    '''
+    def JugadorAnota(self, nombre):
+        nombre = str(nombre)
+        nombre = nombre.lower().strip()
+
+        if(nombre == self.nombre_jugadores[0].lower()):
+            self.MarcarPunto(0)
+            return True
+        
+        elif (nombre == self.nombre_jugadores[1].lower()):
+            self.MarcarPunto(1)
+            return True
+        
+        else:
+            print("No se encontro un jugador con ese nombre. Intenta de nuevo.")
+            print("Los jugadores son: " + str(self.nombre_jugadores[0]) +", " + str(self.nombre_jugadores[1]))
+            return False
     '''
     Marca un punto para el jugador indicado
 
@@ -61,13 +97,19 @@ class Marcador():
         self.puntos[0] = 0
         self.puntos[1] = 0
 
-        print("Juego para " + self.nombre_jugadores[jugador])
+        print("\n========== Juego para " + self.nombre_jugadores[jugador] + " ==========\n")
+        print("Presiona enter para continuar")
+        input()
 
         contricante = 0 if jugador == 1 else 1
 
-        ##Cambio de saque
+        ##Cambio Saque
+        self.cambioSaque = not self.cambioSaque
+
+        ##Cambio de cancha
         self.juego += 1
-        if self.juego % 2 == 1: self.saque = not self.saque
+        if self.juego % 2 == 1: 
+            self.cambioCancha = not self.cambioCancha
 
         ## Para ganar un set, el jugador debe tener al menos 6 juegos y una diferencia de 2
         ## respecto al contricante
@@ -91,7 +133,9 @@ class Marcador():
 
         self.sets_ganados[jugador] += 1
 
-        print("Set para " + self.nombre_jugadores[jugador])
+        print("\n========== Set para " + self.nombre_jugadores[jugador] + " ==========\n")
+        print("Presiona enter para terminar ")
+        input()
 
         ## Minimo de sets que se deben tener para ganar
         minimo = (self.sets - 1)/2 + 1
@@ -111,9 +155,14 @@ class Marcador():
 
     '''
     def __declararGanador(self, ganador):
-        print("Juego terminado. Ganador: " + self.nombre_jugadores[ganador])
+        print("\n========== Juego terminado. Ganador: " + self.nombre_jugadores[ganador] + " ==========\n")
+        print("Presiona enter para terminar.")
+        input()
         self.ganador = ganador
 
+    '''
+    Reinicia el marcador
+    '''
     def Reiniciar(self):
         self.puntos[0] = self.puntos[1] = 0
         self.sets_ganados[0] = self.sets_ganados[1] = 0
@@ -148,9 +197,91 @@ class Marcador():
     def MarcarSet(self, jugador):
         self.__marcarSet(jugador)
 
+    ## Imprime en consola el marcador
     def ImprimirMarcador(self):
-        print("===== MARCADOR =====")
-        print("\t" + self.nombre_jugadores[0]+"\t"+self.nombre_jugadores[1])
-        print("SETS:\t" + str(self.sets_ganados[0]) +"\t"+ str(self.sets_ganados[1]) + "\tMEJOR DE " + str(self.sets))
-        print("JUEGOS:\t" + str(self.juegos_ganados[0])+"\t"+str(self.juegos_ganados[1]))
-        print("PUNTOS:\t" +str(self.dict_puntos[self.puntos[0]])+"\t"+str(self.dict_puntos[self.puntos[1]]))
+        print("\n===== MARCADOR =====")
+
+        n1 = self.nombre_jugadores[0]
+        n2 = self.nombre_jugadores[1]
+        ##Indicar el jugador que saca con @
+        if(self.cambioSaque) : n1 = "🎾" + n1
+        else: n2  = "🎾" + n2
+
+        j0 = 0
+        j1 = 1
+
+        if(self.cambioCancha):
+            j0 = 1
+            j1 = 0
+            print("\t" + n2+"\t"+n1)
+        else:
+            print("\t" + n1+"\t"+n2)
+        
+        print("SETS:\t" + str(self.sets_ganados[j0]) +"\t"+ str(self.sets_ganados[j1]) + "\tMEJOR DE " + str(self.sets))
+        print("JUEGOS:\t" + str(self.juegos_ganados[j0])+"\t"+str(self.juegos_ganados[j1]))
+        print("PUNTOS:\t" +str(self.dict_puntos[self.puntos[j0]])+"\t"+str(self.dict_puntos[self.puntos[j1]])+"\n")
+
+'''
+Obtiene input del usuario en forma de string
+
+Returns
+-------
+str : String
+'''
+def GetUserInputString():
+    while True:
+        text = ""
+        try:    
+            text = input()
+            text = text.strip() 
+        except:
+            print("Por favor ingresa un nombre válido")
+        else:
+            return text
+
+'''
+Obtiene un entero positivo del usuario
+
+Returns
+-------
+int : entero positivo
+'''
+def GetUserPositiveInt():
+    while True:
+        n = 0
+        try:
+            n = int(input())
+            if n < 0:
+                raise
+        except:
+            print("Por favor ingresa un entero positivo.")
+        else:
+            return n
+
+## Main
+if __name__ == "__main__":
+    print("Ingresa el nombre del Jugador 1: ")
+    j1 = GetUserInputString()
+
+    print("Ingresa el nombre del Jugador 2: ")
+    j2 = GetUserInputString()
+
+    print("Ingresa el número máximo de sets a jugar:")
+    sets = GetUserPositiveInt()
+
+    marcador = Marcador(sets, j1, j2)
+    print("====== " + j1 + " VS " + j2 + " ======")
+    print("Jugando a mejor de " + str(marcador.sets))
+
+    print("Presiona enter para continuar")
+    input()
+
+    ## Bucle principal. Termina cuando hay un ganador
+    while(marcador.ganador == -1):
+        marcador.ImprimirMarcador()
+        print("Ingresa el nombre del jugador que marca punto: ")
+        j = GetUserInputString()
+
+        ## Si no rs valido, perguntar por un nombre de nuevo
+        while(not marcador.JugadorAnota(j)):
+            j = GetUserInputString()
