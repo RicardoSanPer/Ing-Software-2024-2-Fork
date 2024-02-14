@@ -2,7 +2,7 @@
 
 ## Ejecucion
 
-El script está ubicado en el directorio penv-1 bajo el nombre Script2.py.
+El script se encuentra bajo el nombre Script2.py.
 
 Las funciones y clases se pueden ejecutar dentro del interprete de Python usando el ambiente virtual.
 

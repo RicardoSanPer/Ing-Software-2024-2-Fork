@@ -2,10 +2,9 @@
 
 ## Ejecucion
 
-El script está ubicado en el directorio penv-1 bajo el nombre Script1.py.
+El script se encuentra bajo el nombre de Script1.py
 
-La prueba unitaria del mismo se encuentra en el mismo directorio bajo el nombre test_Script1.py, y
-se ejecuta usando pytest.
+La prueba unitaria se encuentra bajo el nombre test_Script1.py, y se ejecuta usando pytest.
 
 ## Entrada de Usuario
 

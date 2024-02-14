@@ -2,7 +2,7 @@
 
 ## Ejecucion
 
-El script se encuentra en el directorio penv-1. Se ejecuta dentro del ambiente virtual.
+El script se encuentra bajo el nombre Script3.py
 
 ## Notas
 
