@@ -1,3 +1,5 @@
+import random
+
 class Marcador():
     '''
     Constructor
@@ -26,7 +28,10 @@ class Marcador():
         self.juegos_ganados = [0,0]
         self.dict_puntos = (0,15,30,40,"Adv")
         self.puntos = [0,0]
-        self.cambioSaque = False
+
+        n = random.random()
+
+        self.cambioSaque = n <= 0.5
         self.cambioCancha = False
         self.ganador = -1
 
