@@ -2,7 +2,7 @@ create database RSP_Lab_Ing_P2;
 
 create user 'lab'@'localhost' identified by 'Developer123!';
 
-grant all privileges on lab_ing_software.* to 'lab'@'localhost'
+grant all privileges on RSP_Lab_Ing_P2.* to 'lab'@'localhost'
 with grant option;
 
 use RSP_Lab_Ing_P2;

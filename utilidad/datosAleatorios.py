@@ -13,7 +13,7 @@ class RandomData():
     def __init__(self, fileName):
         self.dataLength = 0
         try:
-            self.file = open("utilidad/" + fileName)
+            self.file = open("utilidad/" + fileName: str)
             self.data = json.load(self.file)
             self.file.close()
             self.dataLength = len(self.data)
@@ -35,7 +35,7 @@ class RandomData():
     -------
     datoObtenido : dato aleatorio
     '''
-    def GetRandomData(self, dato):
+    def GetRandomData(self, dato: str):
         if self.dataLength == 0:
             return None
         
@@ -50,6 +50,13 @@ class RandomData():
 
         return datoObtenido
     
+    '''
+    Genera una entrada aleatoria
+
+    Returns
+    -------
+    entry : diccionario con un valor aleatorio para cada atributo
+    '''
     def GenerateRandomEntry(self):
         if self.dataLength == 0:
             return {}
@@ -60,3 +67,9 @@ class RandomData():
             entry[key] = self.GetRandomData(key)
         
         return entry
+    
+class Poblador():
+    def __init__(self):
+        self.datosUsuarios = RandomData("usuarios.json")
+        self.datosPeliculas = RandomData("peliculas.json")
+
