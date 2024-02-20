@@ -1,11 +1,11 @@
-create database lab_ing_software;
+create database RSP_Lab_Ing_P2;
 
 create user 'lab'@'localhost' identified by 'Developer123!';
 
 grant all privileges on lab_ing_software.* to 'lab'@'localhost'
 with grant option;
 
-use lab_ing_software;
+use RSP_Lab_Ing_P2;
 
 CREATE TABLE `usuarios` (
   `idUsuario` int NOT NULL AUTO_INCREMENT,
