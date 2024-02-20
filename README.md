@@ -8,3 +8,7 @@ Repositorio oficial de la materia de Ingenieria de Software de la Facultad de Ci
 - Fernando Fong
 - Erick Martínez Piza
 - Rogelio Alcantar Arenas
+
+
+## Creditos
+Datos de muestra obtenidos de Mockaroo
