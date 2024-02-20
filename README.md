@@ -19,6 +19,8 @@ Para la sección 2.1 de la practica, se crearon las funciones en Script1.py.
 - ActualizarGenero() cambia el genero de un titulo.
 - EliminarRentas() elimina las rentas de antes de 3 dias.
 
+Se usa el archivo 'datosAleatorios.py' en el directorio 'utilidad' para generar los registros aleatoriamente a partir de datos contenidos en archivos JSON.
+
 ## Creditos
 
 Datos de muestra obtenidos de Mockaroo
