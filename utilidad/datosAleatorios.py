@@ -1,5 +1,6 @@
 import json
 import random
+from datetime import datetime, timedelta
 
 """Clase RandomData que lee un archivo json para obtener datos de muestra"""
 class RandomData():
@@ -39,7 +40,7 @@ class RandomData():
         if self.dataLength == 0:
             return None
         
-        index = random.randint(0, self.dataLength)
+        index = random.randint(0, self.dataLength - 1)
         datoObtenido = None
 
         try:
@@ -67,3 +68,32 @@ class RandomData():
             entry[key] = self.GetRandomData(key)
         
         return entry
+    
+'''
+Genera una fecha aleatoria entre hoy y un año atras en formato Y-m-d
+
+Returns
+-------
+formatted : Fecha en formato para insercion en pymysql
+'''
+def GenerateRandomDate():
+    randomDay = random.randint(0, 365)
+    randomDate = datetime.now() - timedelta(randomDay)
+    formatted = randomDate.strftime('%Y-%m-%d')
+
+    return formatted
+
+'''
+Obtiene un elemento aleatorio de una lista
+
+Params
+------
+list : lista de elementos
+
+Returns
+-------
+Elemento aleatorio de la lista
+'''
+def GetRandomElement(list):
+    r = random.randint(0, len(list) - 1)
+    return list[r]
