@@ -49,3 +49,14 @@ class RandomData():
             print("\t"+ str(e))
 
         return datoObtenido
+    
+    def GenerateRandomEntry(self):
+        if self.dataLength == 0:
+            return {}
+        
+        entry = {}
+
+        for key in self.data[0].keys():
+            entry[key] = self.GetRandomData(key)
+        
+        return entry

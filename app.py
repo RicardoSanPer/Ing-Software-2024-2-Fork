@@ -23,7 +23,6 @@ db.init_app(app)
 if __name__ == '__main__':
     with app.app_context():
         a = datosAleatorios.RandomData("usuarios.json")
-        
-        print(a.GetRandomData("nombre"))
 
+        print(a.GenerateRandomEntry())
         print("Borrado con éxito!")
