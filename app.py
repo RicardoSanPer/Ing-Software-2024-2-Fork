@@ -1,4 +1,5 @@
 import pymysql
+from utilidad import datosAleatorios as da
 
 def mysqlconnect(): 
     # To connect MySQL database 
@@ -8,15 +9,33 @@ def mysqlconnect():
         password = 'Developer123!', 
         db='RSP_Lab_Ing_P2', 
         ) 
-      
-    cur = conn.cursor() 
-    cur.execute("select @@version") 
-    output = cur.fetchall() 
-    print(output) 
-      
-    # To close the connection 
-    conn.close() 
-  
-# Driver Code 
+    
+    return conn
+
+def InsertarUsuario(conexion):
+    usuarios = da.RandomData("usuarios.json")
+    datos = usuarios.GenerateRandomEntry()
+    return Insertar(datos, "usuarios", conexion)
+
+def Insertar(datos, tabla, conexion):
+    try:
+        cols = ', '.join(datos.keys())
+        vals = ', '.join(['%s'] * len(datos))
+        query = f"INSERT INTO {tabla} ({cols}) VALUES ({vals})"
+
+        with conexion.cursor() as cursor:
+            cursor.execute(query, tuple(datos.values()))
+
+        conexion.commit()
+    except Exception as e:
+        print("Algo salio mal al insertar los datos")
+        print(e)
+        return False
+
+    return True
+
+
 if __name__ == "__main__" : 
-    mysqlconnect()
+    con = mysqlconnect()
+    InsertarUsuario(con)
+    con.close()

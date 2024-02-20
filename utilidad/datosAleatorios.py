@@ -10,10 +10,10 @@ class RandomData():
     ------
     fileName : Nombre del archivo json que contiene los datos que se quieren leer
     '''
-    def __init__(self, fileName):
+    def __init__(self, fileName: str):
         self.dataLength = 0
         try:
-            self.file = open("utilidad/" + fileName: str)
+            self.file = open("utilidad/" + fileName)
             self.data = json.load(self.file)
             self.file.close()
             self.dataLength = len(self.data)
@@ -67,9 +67,3 @@ class RandomData():
             entry[key] = self.GetRandomData(key)
         
         return entry
-    
-class Poblador():
-    def __init__(self):
-        self.datosUsuarios = RandomData("usuarios.json")
-        self.datosPeliculas = RandomData("peliculas.json")
-
