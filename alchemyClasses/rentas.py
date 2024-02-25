@@ -1,11 +1,12 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey
+from sqlalchemy.orm import relationship
 from alchemyClasses import db
 
 class Rentas(db.Model):
     __tablename__="rentar"
     idRentar = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    idUsuario = Column(Integer, ForeignKey("usuarios.idUsuario"), nullable=False)
-    idPelicula = Column(Integer, ForeignKey("peliculas.idUsuarios"), nullable=False)
+    idUsuario = Column(Integer, ForeignKey("usuarios.idUsuario", onupdate="CASCADE", ondelete="CASCADE"), nullable=False)
+    idPelicula = Column(Integer, ForeignKey("peliculas.idPelicula", onupdate="CASCADE", ondelete="CASCADE"), nullable=False)
     fecha_renta = Column(DateTime, nullable=False)
     dias_de_renta = Column(Integer, default=5)
     estatus = Column(Boolean, default=False)

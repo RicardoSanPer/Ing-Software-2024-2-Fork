@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, LargeBinary, Boolean
+from sqlalchemy.orm import relationship
 from alchemyClasses import db
 
 class Usuarios(db.Model):

@@ -251,3 +251,7 @@ def EliminarRentas(conexion):
         print(e)
 
     return resultado
+
+if __name__ == "__main__":
+    con = mysqlconnect()
+    InsertarEnCadaTabla(con)
