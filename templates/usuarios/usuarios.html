@@ -6,8 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    Hello World
+    <h1>Usuarios</h1>
+    <a href="/">Volver</a>
+    <a href="/">Buscar</a>
+    <a href="/users/html/agregar">Agregar nuevo</a>
     <br>
-    <a href="/users/html/ver">Volver</a>
+    <div>
+        {% for data in data %}
+            <p><b>ID:</b> {{ data.idUsuario }}</p>
+            <p><b>Nombre:</b> {{ data.nombre }}</p>
+            <p><b>Correo:</b> {{ data.email }}</p>
+            <p>
+                <a href="/users/html/ver?idUsuario={{ data.idUsuario }}">Ver</a>
+                <a href="/users/html/modificar?idUsuario={{ data.idUsuario }}">Modificar</a>
+            </p>
+            <br>
+        {% endfor %}
+    </div>
 </body>
 </html>

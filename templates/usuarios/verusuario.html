@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/users/html">Volver</a>
+    <p>{{ data.idUsuario}}</p>
+    <p>{{ data.nombre }}</p>
+    <p>{{ data.apPat }}</p>
+    <p>{{ data.apMat }}</p>
+    <p>{{ data.email }}</p>
+    <p> {{ data.superUser }}</p>
+    <a href="/users/html/modificar?idUsuario={{data.idUsuario}}">Modificar</a>
+    <a href="/users/html/eliminar?idUsuario={{ data.idUsuario }}">Eliminar</a>
+</body>
+</html>

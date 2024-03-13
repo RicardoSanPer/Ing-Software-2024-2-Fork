@@ -35,6 +35,7 @@ bool : indica si la insercion fue exitosa
 def InsertarUsuario(conexion):
     usuarios = da.RandomData("usuarios.json")
     datos = usuarios.GenerateRandomEntry()
+    datos["superUser"] = False
     return Insertar(datos, "usuarios", conexion)
 
 '''

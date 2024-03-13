@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" onsubmit="return validateForm()">
+        <a href="/users/html">Cancelar</a>
+        Nombre*: <input type="text" name="nombre" placeholder="Nombre" required>
+        <br>
+        Apellido Paterno*: <input type="text" placeholder="Apellido Paterno" name="apPat" required>
+        <br>
+        Apellido Materno: <input type="text" placeholder="Apellido Materno" name="apMat">
+        <br>
+        Correo Electronico: <input type="email" placeholder="correo@dominio.com" name="email">
+        <br>
+        Contraseña: <input type="password" name="password" required>
+        <br>
+        Confirmar: <input type="password" name="password_conf" required>
+        <input type="checkbox" name="superUser" value="1" id="superUser_id">
+        <label for="superUser_id">Super Usuario</label>
+        <br>
+        <input type="submit" value="Agregar">
+    </form>
+</body>
+<script>
+    const validateEmail = (email) => {
+        return email.match(
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+    };
+    function validateForm()
+    {
+        //var idUsuario = document.forms["idUsuario"].value;
+        //console.log(idUsuario);
+        var nombre = document.forms["nombre"].value;
+        var apPat = document.forms["apPat"].value;
+        var correo = document.forms["email"].value;
+        var password = document.forms["password"].value;
+        var password_conf = document.forms["password_conf"].value;
+        if(nombre == null || nombre == "")
+        {
+            window.alert("El nombre no puede estar vacio.");
+            return false;
+        }
+        if(apPat == null || apPat == "")
+        {
+            window.alert("El apellido paterno no puede estar vacio.");
+            return false;
+        }
+        if(password == null || password == "")
+        {
+            window.alert("La contraseña no puede estar vacia.")
+            return false
+        }
+        if(password_conf == null || password_conf != password)
+        {
+            window.alert("Las contraseñas deben coincidir.")
+            return false;
+        }
+        return true;
+    }
+</script>
+</html>
