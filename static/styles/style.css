@@ -1,0 +1,87 @@
+.registro
+{
+    padding: 20px;
+    margin-left: 10px;
+
+    box-shadow: 2px 2px 2px lightgray;
+
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+.registro_id
+{
+    font-size: x-large;
+    color: gray;
+    text-align: center;
+    align-items: stretch;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+}
+.botones_utilidad
+{
+    margin: 10px;
+}
+
+.head
+{
+    margin: 20px;
+}
+
+.registro_datos
+{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.dato
+{
+    font-size: large;
+}
+
+.ver
+{
+    background-color: lightblue;
+}
+
+.mod
+{
+    background-color: lightgreen;
+}
+
+.del
+{
+    background-color: lightcoral;
+}
+
+.link
+{
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+
+    box-shadow: 1px 1px 1px lightgray;
+    transition: 0.5s;
+}
+
+.link:hover
+{
+    background-color: lightyellow;
+}
+
+.link:focus
+{
+    background-color: lightgrey;
+    transform: scale(0.8);
+}
+
+th
+{
+    padding: auto;
+}

@@ -74,5 +74,5 @@ def agregar_usuario():
         registro = Usuarios(nombre=nombre, apPat=apPat, apMat=apMat, email=email, superUser=superUser, password=password)
         db.session.add(registro)
         db.session.commit()
-
+        
         return redirect(url_for("users.html_controller"))

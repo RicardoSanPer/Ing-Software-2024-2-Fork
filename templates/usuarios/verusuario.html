@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     <title>Document</title>
 </head>
 <body>
-    <a href="/users/html">Volver</a>
-    <p>{{ data.idUsuario}}</p>
-    <p>{{ data.nombre }}</p>
-    <p>{{ data.apPat }}</p>
-    <p>{{ data.apMat }}</p>
-    <p>{{ data.email }}</p>
-    <p> {{ data.superUser }}</p>
-    <a href="/users/html/modificar?idUsuario={{data.idUsuario}}">Modificar</a>
-    <a href="/users/html/eliminar?idUsuario={{ data.idUsuario }}">Eliminar</a>
+    <div class="head">
+        <h1>Datos de Usuario</h1>
+        <a href="/users/html" class="link">Volver</a>
+    </div>
+    <div class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>ID:</b> {{ data.idUsuario}}</label>
+                <label class="dato"><b>Nombre:</b> {{ data.nombre}}</label>
+                <label class="dato"><b>Apellido Paterno:</b> {{ data.apPat}}</label>
+                <label class="dato"><b>Apellido Materno:</b> {{ data.apMat}}</label>
+                <label class="dato"><b>Correo:</b> {{ data.email}}</label>
+                <label class="dato"><b>Super Usuario:</b> {{ data.superUser}}</label>
+            </div>
+            <div class="botones_utilidad">
+                <a href="/users/html/modificar?idUsuario={{data.idUsuario}}" class="link mod">Modificar</a>
+                <a href="/users/html/eliminar?idUsuario={{ data.idUsuario }}" class="link del">Eliminar</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     <title>Document</title>
 </head>
 <body>
-    <h1>Usuarios</h1>
-    <a href="/">Volver</a>
-    <a href="/">Buscar</a>
-    <a href="/users/html/agregar">Agregar nuevo</a>
-    <br>
+    <div class="head">
+        <h1>Usuarios</h1>
+        <a href="/" class="link">Volver</a>
+        <a href="/" class="link">Buscar</a>
+        <a href="/users/html/agregar" class="link">Agregar nuevo</a>
+    </div>
     <div>
         {% for data in data %}
-            <p><b>ID:</b> {{ data.idUsuario }}</p>
-            <p><b>Nombre:</b> {{ data.nombre }}</p>
-            <p><b>Correo:</b> {{ data.email }}</p>
-            <p>
-                <a href="/users/html/ver?idUsuario={{ data.idUsuario }}">Ver</a>
-                <a href="/users/html/modificar?idUsuario={{ data.idUsuario }}">Modificar</a>
-            </p>
-            <br>
+        <div class="registro">
+            <div class="registro_id">
+                <label>{{ data.idUsuario }}</label>
+            </div>
+            <div>
+                <div class="registro_datos">
+                    <label class="dato"><b>Nombre:</b> {{ data.nombre }}</label>
+                    <label class="dato"><b>Correo:</b> {{ data.email }}</label>
+                </div>
+                <div class="botones_utilidad">
+                    <a href="/users/html/ver?idUsuario={{ data.idUsuario }}" class="link ver">Ver</a>
+                    <a href="/users/html/modificar?idUsuario={{ data.idUsuario }}" class="link mod">Modificar</a>
+                    <a href="/users/html/eliminar?idUsuario={{ data.idUsuario }}" class="link del">Eliminar</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
     </div>
 </body>
