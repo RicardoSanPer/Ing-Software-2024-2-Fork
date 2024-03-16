@@ -17,6 +17,8 @@ def html_controller():
 def ver_usuario():
     id = request.args["idUsuario"]
     data = ModeloUsuario.obtenerUsuario(id)
+
+    ##Si el id no existe
     if(data == None):
         return redirect(url_for("users.html_controller"))
 
@@ -38,6 +40,11 @@ def modificar_usuario():
     if request.method == "GET":     
         id = request.args["idUsuario"]
         data = Usuarios.query.get(id)
+        
+        ##Si se intenta modificar un id inexistente
+        if(data == None):
+            return redirect(url_for("users.html_controller"))
+        
         return render_template("/usuarios/modificarusuario.html", data=data)
     else:
         idUsuario = request.form.get("idUsuario")

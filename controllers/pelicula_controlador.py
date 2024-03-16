@@ -17,6 +17,8 @@ def html_controller():
 def ver_pelicula():
     id = request.args["idPelicula"]
     data = ModeloPelicula.obtenerPelicula(id)
+    
+    ##si el id no existe
     if(data == None):
         return redirect(url_for("movies.html_controller"))
     
@@ -39,6 +41,8 @@ def modificar_pelicula():
     if request.method == "GET":     
         id = request.args["idPelicula"]
         data = Peliculas.query.get(id)
+
+        ## Si se intenta modificar una pelicula inexistente
         if(data == None):
             return redirect(url_for("movies.html_controller")) 
         return render_template("/peliculas/modificarpelicula.html", data=data)

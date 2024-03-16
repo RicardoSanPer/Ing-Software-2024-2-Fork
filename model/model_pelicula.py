@@ -108,6 +108,6 @@ class ModeloPelicula():
         try:
             data = Peliculas.query.get(id)
         except Exception as e:
-            flash(f"Algo salio mal al obtener los datos para ID: {str(id)}:\n", "error")
+            flash(f"Algo salio mal al obtener los datos para ID {str(id)}:\n" + str(e), "error")
             return None
         return data

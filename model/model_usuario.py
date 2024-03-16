@@ -104,7 +104,9 @@ class ModeloUsuario():
         data = None
         try:
             data = Usuarios.query.get(id)
+            if(data is None):
+                raise Exception("No exite registro con el ID solicitado.")
         except Exception as e:
-            flash(f"Algo salio mal al obtener los datos para ID: {str(id)}:\n", "error")
+            flash(f"Algo salio mal al obtener los datos para ID {str(id)}:\n" + str(e), "error")
             return None
         return data
