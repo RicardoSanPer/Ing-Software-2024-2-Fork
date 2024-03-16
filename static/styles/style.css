@@ -86,3 +86,23 @@ th
 {
     padding: auto;
 }
+
+.alert
+{
+    padding: 10px;
+    margin: 5px;
+}
+
+.success
+{
+    background-color: lightgreen;
+    border-radius: 5px;
+    border: solid 2px green;
+}
+
+.error
+{
+    background-color: lightcoral;
+    border-radius: 5px;
+    border: solid 2px red;
+}
