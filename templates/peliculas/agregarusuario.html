@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="head">
+        <h1>Agregar Pelicula</h1>
+        <a href="/movies/html" class="link del">Cancelar</a>
+    </div>
+    <form method="POST" onsubmit="return validateForm()" class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" placeholder="Nombre"></label>
+                <label class="dato"><b>Genero:</b> <input type="text" placeholder="Genero" name="genero"></label>
+                <label class="dato"><b>Duracion:</b> <input type="number" min="0" step="1" placeholder="120" name="duracion"></label>
+                <label class="dato"><b>Inventario:</b> <input type="number" min="0" step="1" placeholder="1" name="inventario"></label>
+            </div>
+            <div class="botones_utilidad">
+                <input type="submit" value="Agregar">
+            </div>
+        </div>
+    </form>
+</body>
+<script>
+    function validateForm()
+    {
+        var nombre = document.forms["nombre"].value;
+        var inventario = document.forms["inventario"].value;
+        if(nombre == null || nombre == "")
+        {
+            window.alert("El nombre no puede estar vacio.");
+            return false;
+        }
+        if(inventario == null)
+        {
+            window.alert("El inventario no puede estar vacio.");
+            return false;
+        }
+        return true;
+    }
+</script>
+</html>

@@ -14,65 +14,61 @@ def html_controller():
 
 ##ver informacion de pelicula
 @bp_pelicula.route("/html/ver", methods =["GET"])
-def ver_usuarios():
+def ver_pelicula():
     id = request.args["idPelicula"]
     data = Peliculas.query.filter(Peliculas.idPelicula == id).first()
     return render_template('/peliculas/verpelicula.html', data=data)
 
 ##borrar usuario
 @bp_pelicula.route("/html/eliminar", methods =["GET"])
-def borrar_usuarios():
-    id = request.args["idUsuario"]
-    queryRentas = Rentas.query.filter_by(idUsuario=id).delete()
+def borrar_pelicula():
+    id = request.args["idPelicula"]
+    queryRentas = Rentas.query.filter_by(idPelicula=id).delete()
     
-    Usuarios.query.filter_by(idUsuario = id).delete()
+    Peliculas.query.filter_by(idPelicula = id).delete()
 
     db.session.commit()
-    return render_template("/usuarios/eliminarusuario.html")
+    return render_template("/peliculas/eliminarpelicula.html")
 
 
-##modificar_usuario
+##modificar_pelicula
 @bp_pelicula.route("/html/modificar", methods=["GET", "POST"])
-def modificar_usuario():
+def modificar_pelicula():
     if request.method == "GET":     
-        id = request.args["idUsuario"]
-        data = Usuarios.query.filter_by(idUsuario = id).first()
-        return render_template("/usuarios/modificarusuario.html", data=data)
+        id = request.args["idPelicula"]
+        data = Peliculas.query.filter_by(idPelicula = id).first()
+        return render_template("/peliculas/modificarpelicula.html", data=data)
     else:
-        idUsuario = request.form["idUsuario"]
+        idPelicula = request.form["idPelicula"]
         nombre = request.form["nombre"]
-        apPat = request.form["apPat"]
-        apMat = request.form["apMat"]
-        email = request.form["email"]
-        superUser = request.form.get("superUser") == "1"
+        genero = request.form["genero"]
+        duracion = request.form["duracion"]
+        inventario = request.form["inventario"]
 
-        usuario = Usuarios.query.get(idUsuario)
+        usuario = Peliculas.query.get(idPelicula)
         usuario.nombre = nombre
-        usuario.apPat = apPat
-        usuario.apMat = apMat
-        usuario.email = email
-        usuario.superUser = superUser
+        usuario.genero = genero
+        usuario.duracion = duracion
+        usuario.inventario = inventario
 
         db.session.commit()
 
-        usuario = Usuarios.query.get(idUsuario)
-        return render_template('/usuarios/verusuario.html', data=usuario)
+        pelicula = Peliculas.query.get(idPelicula)
+        return render_template('/peliculas/verpelicula.html', data=pelicula)
     
 ##modificar_usuario
 @bp_pelicula.route("/html/agregar", methods=["GET", "POST"])
-def agregar_usuario():
+def agregar_pelicula():
     if request.method == "GET":
-        return render_template("/usuarios/agregarusuario.html", data=None)
+        return render_template("/peliculas/agregarpelicula.html", data=None)
     else:
         nombre = request.form["nombre"]
-        apPat = request.form["apPat"]
-        apMat = request.form["apMat"]
-        email = request.form["email"]
-        superUser = request.form.get("superUser") == "1"
-        password = request.form["password"]
+        genero = request.form["genero"]
+        duracion = request.form["duracion"]
+        inventario = request.form["inventario"]
 
-        registro = Usuarios(nombre=nombre, apPat=apPat, apMat=apMat, email=email, superUser=superUser, password=password)
+        registro = Peliculas(nombre=nombre, genero=genero, duracion=duracion, inventario=inventario)
         db.session.add(registro)
         db.session.commit()
         
-        return redirect(url_for("users.html_controller"))
+        return redirect(url_for("movies.html_controller"))
