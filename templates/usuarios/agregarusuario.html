@@ -12,6 +12,15 @@
         <h1>Agregar Usuario</h1>
         <a href="/users/html" class="link del">Cancelar</a>
     </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <form method="POST" onsubmit="return validateForm()" class="registro">
         <div>
             <div class="registro_datos">
