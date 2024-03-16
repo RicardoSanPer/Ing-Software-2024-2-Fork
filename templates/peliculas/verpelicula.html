@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head">
+        <h1>Datos de Pelicula</h1>
+        <a href="/movies/html" class="link">Volver</a>
+    </div>
+    <div class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>ID:</b> {{ data.idPelicula}}</label>
+                <label class="dato"><b>Nombre:</b> {{ data.nombre}}</label>
+                <label class="dato"><b>Genero:</b> {{ data.genero}}</label>
+                <label class="dato"><b>Duracion:</b> {{ data.duracion}}</label>
+                <label class="dato"><b>Inventario:</b> {{ data.inventario}}</label>
+            </div>
+            <div class="botones_utilidad">
+                <a href="/users/html/modificar?idUsuario={{data.idUsuario}}" class="link mod">Modificar</a>
+                <a href="/users/html/eliminar?idUsuario={{ data.idUsuario }}" class="link del">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

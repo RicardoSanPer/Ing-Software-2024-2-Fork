@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" onsubmit="return validateForm()">
-        <a href="/users/html/ver?idUsuario={{ data.idUsuario }}">Cancelar</a>
-        <p><b>ID:</b> {{data.idUsuario}}</p>
-        <input type="hidden" name="idUsuario" value={{data.idUsuario}}>
-        Nombre*: <input type="text" name="nombre" value={{data.nombre}} required>
-        <br>
-        Apellido Paterno*: <input type="text" value={{data.apPat}} name="apPat" required>
-        <br>
-        Apellido Materno: <input type="text" value={{data.apMat}} name="apMat">
-        <br>
-        Correo Electronico: <input type="email" value={{data.email}} name="email">
-        <br>
-        <input type="checkbox" name="superUser"
-        {% if data.superUser %}
-            checked
-        {% endif %} value="1" id="superUser_id">
-        <label for="superUser_id">Super Usuario</label>
-        <br>
-        <input type="submit" value="Modificar">
+    <div class="head">
+        <h1>Modificar Usuario</h1>
+        <a href="/users/html/ver?idUsuario={{ data.idUsuario }}" class="link del">Cancelar</a>
+    </div>
+    <form method="POST" onsubmit="return validateForm()" class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><input type="hidden" name="idUsuario" value={{data.idUsuario}}><b>ID:</b> {{ data.idUsuario}}</label>
+                <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" value={{data.nombre}} required></label>
+                <label class="dato"><b>Apellido Paterno:</b> <input type="text" value={{data.apPat}} name="apPat" required></label>
+                <label class="dato"><b>Apellido Materno:</b> <input type="text" value={{data.apMat}} name="apMat"></label>
+                <label class="dato"><b>Correo:</b> <input type="email" value={{data.email}} name="email"></label>
+                <label class="dato"><b>Super Usuario:</b> <input type="checkbox" name="superUser"
+                    {% if data.superUser %}
+                        checked
+                    {% endif %} value="1" id="superUser_id"></label>
+            </div>
+            <div class="botones_utilidad">
+                <input type="submit" value="Modificar">
+            </div>
+        </div>
     </form>
 </body>
 <script>

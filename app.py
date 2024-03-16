@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from alchemyClasses import db
 
 from controllers import usuario_controlador
+from controllers import pelicula_controlador
 
 """
 
@@ -17,6 +18,7 @@ app.config.from_mapping(SECRET_KEY='dev')
 db.init_app(app)
 
 app.register_blueprint(usuario_controlador.bp_usuario)
+app.register_blueprint(pelicula_controlador.bp_pelicula)
 
 @app.route('/')
 def hello_world():  # put application's code here

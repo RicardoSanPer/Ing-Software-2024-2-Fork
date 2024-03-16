@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" onsubmit="return validateForm()">
-        <a href="/users/html">Cancelar</a>
-        Nombre*: <input type="text" name="nombre" placeholder="Nombre" required>
-        <br>
-        Apellido Paterno*: <input type="text" placeholder="Apellido Paterno" name="apPat" required>
-        <br>
-        Apellido Materno: <input type="text" placeholder="Apellido Materno" name="apMat">
-        <br>
-        Correo Electronico: <input type="email" placeholder="correo@dominio.com" name="email">
-        <br>
-        Contraseña: <input type="password" name="password" required>
-        <br>
-        Confirmar: <input type="password" name="password_conf" required>
-        <input type="checkbox" name="superUser" value="1" id="superUser_id">
-        <label for="superUser_id">Super Usuario</label>
-        <br>
-        <input type="submit" value="Agregar">
+    <div class="head">
+        <h1>Agregar Usuario</h1>
+        <a href="/users/html" class="link del">Cancelar</a>
+    </div>
+    <form method="POST" onsubmit="return validateForm()" class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" placeholder="Nombre"></label>
+                <label class="dato"><b>Apellido Paterno:</b> <input type="text" placeholder="Apellido Paterno" name="apPat" required></label>
+                <label class="dato"><b>Apellido Materno:</b> <input type="text" placeholder="Apellido Materno" name="apMat"></label>
+                <label class="dato"><b>Correo:</b> <input type="email" placeholder="Email@dominio.com" name="email"></label>
+                <label class="dato"><b>Super Usuario:</b> <input type="checkbox" name="superUser" value="0" id="superUser_id"></label>
+                <label class="dato"><b>Contraseña:</b> <input type="password" name="password" required></label>
+                <label class="dato"><b>Confirmar:</b> <input type="password" name="password_conf" required></label>
+            </div>
+            <div class="botones_utilidad">
+                <input type="submit" value="Agregar">
+            </div>
+        </div>
     </form>
 </body>
 <script>

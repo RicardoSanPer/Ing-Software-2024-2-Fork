@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="head">
-        <h1>Usuarios</h1>
+        <h1>Peliculas</h1>
         <a href="/" class="link">Volver</a>
         <a href="/users/html/agregar" class="link">Agregar nuevo</a>
     </div>
@@ -16,15 +16,15 @@
         {% for data in data %}
         <div class="registro">
             <div class="registro_id">
-                <label>{{ data.idUsuario }}</label>
+                <label>{{ data.idPelicula }}</label>
             </div>
             <div>
                 <div class="registro_datos">
                     <label class="dato"><b>Nombre:</b> {{ data.nombre }}</label>
-                    <label class="dato"><b>Correo:</b> {{ data.email }}</label>
+                    <label class="dato"><b>Inventario:</b> {{ data.inventario }}</label>
                 </div>
                 <div class="botones_utilidad">
-                    <a href="/users/html/ver?idUsuario={{ data.idUsuario }}" class="link ver">Ver</a>
+                    <a href="/movies/html/ver?idPelicula={{ data.idPelicula }}" class="link ver">Ver</a>
                     <a href="/users/html/modificar?idUsuario={{ data.idUsuario }}" class="link mod">Modificar</a>
                     <a href="/users/html/eliminar?idUsuario={{ data.idUsuario }}" class="link del">Eliminar</a>
                 </div>
