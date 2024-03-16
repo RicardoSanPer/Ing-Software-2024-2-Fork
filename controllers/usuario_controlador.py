@@ -16,7 +16,7 @@ def html_controller():
 @bp_usuario.route("/html/ver", methods =["GET"])
 def ver_usuarios():
     id = request.args["idUsuario"]
-    data = Usuarios.query.filter(Usuarios.idUsuario == id).first()
+    data = Usuarios.query.get(id)
     return render_template('/usuarios/verusuario.html', data=data)
 
 ##borrar usuario
@@ -36,7 +36,7 @@ def borrar_usuarios():
 def modificar_usuario():
     if request.method == "GET":     
         id = request.args["idUsuario"]
-        data = Usuarios.query.filter_by(idUsuario = id).first()
+        data = Usuarios.query.get(id)
         return render_template("/usuarios/modificarusuario.html", data=data)
     else:
         idUsuario = request.form["idUsuario"]
@@ -58,7 +58,7 @@ def modificar_usuario():
         usuario = Usuarios.query.get(idUsuario)
         return render_template('/usuarios/verusuario.html', data=usuario)
     
-##modificar_usuario
+## Agregar usuario
 @bp_usuario.route("/html/agregar", methods=["GET", "POST"])
 def agregar_usuario():
     if request.method == "GET":

@@ -16,7 +16,7 @@ def html_controller():
 @bp_pelicula.route("/html/ver", methods =["GET"])
 def ver_pelicula():
     id = request.args["idPelicula"]
-    data = Peliculas.query.filter(Peliculas.idPelicula == id).first()
+    data = Peliculas.query.get(id)
     return render_template('/peliculas/verpelicula.html', data=data)
 
 ##borrar usuario
@@ -31,32 +31,36 @@ def borrar_pelicula():
     return render_template("/peliculas/eliminarpelicula.html")
 
 
-##modificar_pelicula
+##modificar pelicula
 @bp_pelicula.route("/html/modificar", methods=["GET", "POST"])
 def modificar_pelicula():
     if request.method == "GET":     
         id = request.args["idPelicula"]
-        data = Peliculas.query.filter_by(idPelicula = id).first()
+        data = Peliculas.query.get(id)
         return render_template("/peliculas/modificarpelicula.html", data=data)
     else:
-        idPelicula = request.form["idPelicula"]
+        idPelicula = request.form.get("idPelicula")
         nombre = request.form["nombre"]
         genero = request.form["genero"]
-        duracion = request.form["duracion"]
+        duracion = request.form.get("duracion", None)
+
+        if(not duracion):
+            duracion = None
+
         inventario = request.form["inventario"]
 
-        usuario = Peliculas.query.get(idPelicula)
-        usuario.nombre = nombre
-        usuario.genero = genero
-        usuario.duracion = duracion
-        usuario.inventario = inventario
+        pelicula = Peliculas.query.get(idPelicula)
+        pelicula.nombre = nombre
+        pelicula.genero = genero
+        pelicula.duracion = duracion
+        pelicula.inventario = inventario
 
         db.session.commit()
 
         pelicula = Peliculas.query.get(idPelicula)
         return render_template('/peliculas/verpelicula.html', data=pelicula)
     
-##modificar_usuario
+##Agregar pelicula
 @bp_pelicula.route("/html/agregar", methods=["GET", "POST"])
 def agregar_pelicula():
     if request.method == "GET":
@@ -64,8 +68,11 @@ def agregar_pelicula():
     else:
         nombre = request.form["nombre"]
         genero = request.form["genero"]
-        duracion = request.form["duracion"]
-        inventario = request.form["inventario"]
+        duracion = request.form.get("duracion")
+
+        inventario = int(request.form["inventario"])
+        if(not duracion):
+            duracion = None
 
         registro = Peliculas(nombre=nombre, genero=genero, duracion=duracion, inventario=inventario)
         db.session.add(registro)

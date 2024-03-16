@@ -15,10 +15,10 @@
     <form method="POST" onsubmit="return validateForm()" class="registro">
         <div>
             <div class="registro_datos">
-                <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" placeholder="Nombre"></label>
+                <label class="dato"><b>Nombre:</b> <input type="text" placeholder="Nombre" name="nombre"  required></label>
                 <label class="dato"><b>Genero:</b> <input type="text" placeholder="Genero" name="genero"></label>
                 <label class="dato"><b>Duracion:</b> <input type="number" min="0" step="1" placeholder="120" name="duracion"></label>
-                <label class="dato"><b>Inventario:</b> <input type="number" min="0" step="1" placeholder="1" name="inventario"></label>
+                <label class="dato"><b>Inventario:</b> <input type="number" min="0" step="1" placeholder="1" name="inventario" required></label>
             </div>
             <div class="botones_utilidad">
                 <input type="submit" value="Agregar">
