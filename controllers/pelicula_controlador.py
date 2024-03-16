@@ -1,9 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
+from alchemyClasses import db
+
 from alchemyClasses.peliculas import Peliculas
 from model.model_pelicula import ModeloPelicula
-from alchemyClasses.rentas import Rentas
-
-from alchemyClasses import db
 
 bp_pelicula = Blueprint("movies", __name__, url_prefix="/movies")
 
@@ -40,6 +39,8 @@ def modificar_pelicula():
     if request.method == "GET":     
         id = request.args["idPelicula"]
         data = Peliculas.query.get(id)
+        if(data == None):
+            return redirect(url_for("movies.html_controller")) 
         return render_template("/peliculas/modificarpelicula.html", data=data)
     ## Modificar pelicula
     else:
