@@ -11,6 +11,15 @@
         <h1>Datos de Pelicula</h1>
         <a href="/movies/html" class="link">Volver</a>
     </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="registro">
         <div>
             <div class="registro_datos">

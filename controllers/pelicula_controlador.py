@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from alchemyClasses.peliculas import Peliculas
+from model.model_pelicula import ModeloPelicula
 from alchemyClasses.rentas import Rentas
 
 from alchemyClasses import db
@@ -16,49 +17,36 @@ def html_controller():
 @bp_pelicula.route("/html/ver", methods =["GET"])
 def ver_pelicula():
     id = request.args["idPelicula"]
-    data = Peliculas.query.get(id)
+    data = ModeloPelicula.obtenerPelicula(id)
+    if(data == None):
+        return redirect(url_for("movies.html_controller"))
+    
     return render_template('/peliculas/verpelicula.html', data=data)
 
-##borrar usuario
+##borrar pelicula
 @bp_pelicula.route("/html/eliminar", methods =["GET"])
 def borrar_pelicula():
     id = request.args["idPelicula"]
-    queryRentas = Rentas.query.filter_by(idPelicula=id).delete()
-    
-    Peliculas.query.filter_by(idPelicula = id).delete()
-
-    db.session.commit()
-    return render_template("/peliculas/eliminarpelicula.html")
+    if ModeloPelicula.eliminarPelicula(id):
+        return redirect(url_for("movies.html_controller"))
+    else:
+        return redirect(url_for("movies.ver_pelicula", idPelicula = id))
 
 
 ##modificar pelicula
 @bp_pelicula.route("/html/modificar", methods=["GET", "POST"])
 def modificar_pelicula():
+    ## Cargar form con datos de la pelicula a modificar
     if request.method == "GET":     
         id = request.args["idPelicula"]
         data = Peliculas.query.get(id)
         return render_template("/peliculas/modificarpelicula.html", data=data)
+    ## Modificar pelicula
     else:
         idPelicula = request.form.get("idPelicula")
-        nombre = request.form["nombre"]
-        genero = request.form["genero"]
-        duracion = request.form.get("duracion", None)
+        ModeloPelicula.modificarPelicula(request.form)
+        return redirect(url_for("movies.ver_pelicula",idPelicula = idPelicula))
 
-        if(not duracion):
-            duracion = None
-
-        inventario = request.form["inventario"]
-
-        pelicula = Peliculas.query.get(idPelicula)
-        pelicula.nombre = nombre
-        pelicula.genero = genero
-        pelicula.duracion = duracion
-        pelicula.inventario = inventario
-
-        db.session.commit()
-
-        pelicula = Peliculas.query.get(idPelicula)
-        return render_template('/peliculas/verpelicula.html', data=pelicula)
     
 ##Agregar pelicula
 @bp_pelicula.route("/html/agregar", methods=["GET", "POST"])
@@ -66,16 +54,5 @@ def agregar_pelicula():
     if request.method == "GET":
         return render_template("/peliculas/agregarpelicula.html", data=None)
     else:
-        nombre = request.form["nombre"]
-        genero = request.form["genero"]
-        duracion = request.form.get("duracion")
-
-        inventario = int(request.form["inventario"])
-        if(not duracion):
-            duracion = None
-
-        registro = Peliculas(nombre=nombre, genero=genero, duracion=duracion, inventario=inventario)
-        db.session.add(registro)
-        db.session.commit()
-        
-        return redirect(url_for("movies.html_controller"))
+        ModeloPelicula.agregarPelicula(request.form)
+        return redirect(url_for("movies.agregar_pelicula"))

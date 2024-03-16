@@ -12,6 +12,15 @@
         <a href="/" class="link">Volver</a>
         <a href="/movies/html/agregar" class="link">Agregar nuevo</a>
     </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div>
         {% for data in data %}
         <div class="registro">

@@ -8,9 +8,18 @@
     <title>Document</title>
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="head">
         <h1>Agregar Pelicula</h1>
-        <a href="/movies/html" class="link del">Cancelar</a>
+        <a href="/movies/html" class="link del">Volver</a>
     </div>
     <form method="POST" onsubmit="return validateForm()" class="registro">
         <div>
