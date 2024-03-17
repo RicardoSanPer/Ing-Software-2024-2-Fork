@@ -65,7 +65,7 @@ def borrar_renta():
     else:
         return redirect(url_for("rents.ver_renta", idRentar = id))
     
-##Agregar pelicula
+##Agregar renta
 @bp_renta.route("/html/agregar", methods=["GET", "POST"])
 def agregar_renta():
     if request.method == "GET":
@@ -76,4 +76,4 @@ def agregar_renta():
         if ModeloRenta.agregarRenta(data):
             return redirect(url_for("rents.agregar_renta"))
         ## Si falla el ingreso de datos, enviar los datos ingresados para que el usuario no los tenga que reingresar
-        return render_template("/rentas/agregarrenta.html", data=data, fecha=dt.date.today)
+        return render_template("/rentas/agregarrenta.html", data=data, fecha=dt.date.today())
