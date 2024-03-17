@@ -8,11 +8,22 @@
     <title>Modificar Pelicula</title>
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="head">
         <h1>Modificar Pelicula</h1>
-        <a href="/movies/html/ver?idPelicula={{ data.idPelicula }}" class="link">Volver</a>
+        <div class="botones_utilidad">
+            <a href="/movies/html/ver?idPelicula={{ data.idPelicula }}" class="link">Volver</a>
+        </div>
     </div>
-    <form method="POST" onsubmit="return validateForm()" class="registro">
+    <form method="POST" class="registro">
         <div>
             <div class="registro_datos">
                 <label class="dato"><input type="hidden" name="idPelicula" value={{data.idPelicula}}><b>ID:</b> {{ data.idPelicula}}</label>

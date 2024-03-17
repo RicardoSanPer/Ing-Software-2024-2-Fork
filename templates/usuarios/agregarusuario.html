@@ -8,10 +8,6 @@
     <title>Agregar Usuario</title>
 </head>
 <body>
-    <div class="head">
-        <h1>Agregar Usuario</h1>
-        <a href="/users/html" class="link">Volver</a>
-    </div>
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
@@ -21,7 +17,13 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-    <form method="POST" onsubmit="return validateForm()" class="registro">
+    <div class="head">
+        <h1>Agregar Usuario</h1>
+        <div class="botones_utilidad">
+            <a href="/users/html" class="link">Volver</a>
+        </div>
+    </div>
+    <form method="POST" class="registro">
         <div>
             <div class="registro_datos">
                 <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" placeholder="Nombre" required

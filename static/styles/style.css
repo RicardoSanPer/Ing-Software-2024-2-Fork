@@ -22,6 +22,8 @@
 .botones_utilidad
 {
     margin: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .head
@@ -57,8 +59,27 @@
     background-color: lightcoral;
 }
 
+.main
+{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px lightgray;
+    width: 250px;
+    padding: 50px;
+    margin: 25px;
+    font-size: xx-large;
+    color: black;
+    transition: 0.5s;
+}
+.main:hover
+{
+    transform: scale(1.1);
+}
+
 .link
 {
+    display: block;
     text-align: center;
     text-decoration: none;
     color: inherit;
@@ -75,13 +96,13 @@
 {
     background-color: lightyellow;
 
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .link:focus
 {
     background-color: lightgrey;
-    transform: scale(0.8);
+    transform: scale(0.9);
 }
 
 th

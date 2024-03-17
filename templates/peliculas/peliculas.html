@@ -7,11 +7,6 @@
     <title>Peliculas</title>
 </head>
 <body>
-    <div class="head">
-        <h1>Peliculas</h1>
-        <a href="/" class="link">Volver</a>
-        <a href="/movies/html/agregar" class="link">Agregar nuevo</a>
-    </div>
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
@@ -21,6 +16,13 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
+    <div class="head">
+        <h1>Peliculas</h1>
+        <div class="botones_utilidad">
+            <a href="/" class="link">Volver</a>
+            <a href="/movies/html/agregar" class="link">Agregar nuevo</a>
+        </div>
+    </div>
     <div>
         {% for data in data %}
         <div class="registro">

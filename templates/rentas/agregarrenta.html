@@ -19,9 +19,11 @@
     {% endwith %}
     <div class="head">
         <h1>Agregar Renta</h1>
-        <a href="/rents/html" class="link">Volver</a>
+        <div class="botones_utilidad">
+            <a href="/rents/html" class="link">Volver</a>
+        </div>
     </div>
-    <form method="POST" onsubmit="return validateForm()" class="registro">
+    <form method="POST" class="registro">
         <div>
             <div class="registro_datos">
                 <label class="dato"><b>ID Usuario</b> <input type="text" placeholder="ID de Usuario" name="idUsuario"  required

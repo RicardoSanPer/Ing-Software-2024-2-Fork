@@ -24,7 +24,7 @@ class ModeloRenta():
 
             db.session.commit()
         except Exception as e:
-            flash("Algo salió ma al modificar el registro:\n" + str(e), "error")
+            flash("Algo salió mal al modificar el registro:\n" + str(e), "error")
             return False
         flash(f"Registro {id} modificado con éxito", "success")
         return True
@@ -44,8 +44,10 @@ class ModeloRenta():
         data = None
         try:
             data = Rentas.query.get(id)
+            if data == None:
+                raise Exception(f"El registro {str(id)} no existe")
         except Exception as e:
-            flash(f"Algo salio mal al obtener los datos para ID {str(id)}:\n" + str(e), "error")
+            flash(f"Algo salió mal al obtener los datos para ID {str(id)}:\n" + str(e), "error")
             return None
         return data
     
@@ -93,5 +95,5 @@ class ModeloRenta():
         try:
             data = Rentas.query.all()
         except Exception as e:
-            flash("Algo salio mal al obtener los datos:\n" + str(e))
+            flash("Algo salió mal al obtener los datos:\n" + str(e))
         return data
