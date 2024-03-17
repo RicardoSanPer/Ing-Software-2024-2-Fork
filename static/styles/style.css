@@ -74,6 +74,8 @@
 .link:hover
 {
     background-color: lightyellow;
+
+    transform: scale(1.2);
 }
 
 .link:focus

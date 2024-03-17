@@ -1,6 +1,5 @@
 from alchemyClasses.usuarios import Usuarios
 from alchemyClasses.rentas import Rentas
-from alchemyClasses import db
 
 from flask import flash
 

@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from alchemyClasses import db
 
 from model.model_usuario import ModeloUsuario
 

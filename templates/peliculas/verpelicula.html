@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-    <title>Document</title>
+    <title>Datos de Pelicula</title>
 </head>
 <body>
     <div class="head">
@@ -26,7 +26,7 @@
                 <label class="dato"><b>ID:</b> {{ data.idPelicula}}</label>
                 <label class="dato"><b>Nombre:</b> {{ data.nombre}}</label>
                 <label class="dato"><b>Genero:</b> {{ data.genero}}</label>
-                <label class="dato"><b>Duracion:</b> {{ data.duracion}}</label>
+                <label class="dato"><b>Duracion:</b> {{ data.duracion}} mins.</label>
                 <label class="dato"><b>Inventario:</b> {{ data.inventario}}</label>
             </div>
             <div class="botones_utilidad">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-    <title>Document</title>
+    <title>Datos de Renta</title>
 </head>
 <body>
     <div class="head">
@@ -33,7 +33,7 @@
                 <label class="dato"><b>Estatus:</b>{% if data.estatus %} 
                    Devuelto
                    {% else %}
-                   No devuelto {% if late %}(Retrasado){% endif %}
+                   No devuelto {% if late %}<a style="color:red">(Retrasado)</a>{% endif %}
                 {% endif %}
                 </label>
             </div>

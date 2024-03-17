@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-    <title>Document</title>
+    <title>Rentas</title>
 </head>
 <body>
     <div class="head">
@@ -31,6 +31,7 @@
                 <div class="registro_datos">
                     <label class="dato"><b>Fecha:</b> {{ data[0].fecha_renta.strftime('%d, %b %Y') }}</label>
                     <label class="dato"><b>Dias:</b> {{ data[0].dias_de_renta }}</label>
+                    {% if data[1] %} <label class="datp"><b style="color: red;">DEVOLUCIÓN EN RETRASO</b> {% endif %}
                 </div>
                 <div class="botones_utilidad">
                     <a href="/rents/html/ver?idRentar={{ data[0].idRentar }}" class="link ver">Ver</a>
