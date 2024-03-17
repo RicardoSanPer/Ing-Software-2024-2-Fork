@@ -59,5 +59,8 @@ def agregar_pelicula():
     if request.method == "GET":
         return render_template("/peliculas/agregarpelicula.html", data=None)
     else:
-        ModeloPelicula.agregarPelicula(request.form)
-        return redirect(url_for("movies.agregar_pelicula"))
+        data = request.form
+        if ModeloPelicula.agregarPelicula(data):
+            return redirect(url_for("movies.agregar_pelicula"))
+        ## Si falla el ingreso de datos, enviar los datos ingresados para que el usuario no los tenga que reingresar
+        return render_template("/peliculas/agregarpelicula.html", data=data)

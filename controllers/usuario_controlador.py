@@ -57,5 +57,8 @@ def agregar_usuario():
     if request.method == "GET":
         return render_template("/usuarios/agregarusuario.html", data=None)
     else:
-        ModeloUsuario.agregarUsuario(request.form)
-        return redirect(url_for("users.agregar_usuario"))
+        data = request.form
+        if ModeloUsuario.agregarUsuario(request.form):
+            return redirect(url_for("users.agregar_usuario"))
+        ## Si falla el ingreso de datos, enviar los datos ingresados para que el usuario no los tenga que reingresar
+        return render_template("/usuarios/agregarusuario.html", data=data)

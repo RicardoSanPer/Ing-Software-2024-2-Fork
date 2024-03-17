@@ -28,7 +28,9 @@
                 <label class="dato"><b>Apellido Paterno:</b> {{ data.apPat}}</label>
                 <label class="dato"><b>Apellido Materno:</b> {{ data.apMat}}</label>
                 <label class="dato"><b>Correo:</b> {{ data.email}}</label>
-                <label class="dato"><b>Super Usuario:</b> {{ data.superUser}}</label>
+                {% if data.superUser %}
+                <label class="dato"><b>Super Usuario</b></label>
+                {% endif %}
             </div>
             <div class="botones_utilidad">
                 <a href="/users/html/modificar?idUsuario={{data.idUsuario}}" class="link mod">Modificar</a>

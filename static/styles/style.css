@@ -1,7 +1,7 @@
 .registro
 {
     padding: 20px;
-    margin-left: 10px;
+    margin: 10px;
 
     box-shadow: 2px 2px 2px lightgray;
 
@@ -105,4 +105,9 @@ th
     background-color: lightcoral;
     border-radius: 5px;
     border: solid 2px red;
+}
+
+.late
+{
+    border: 5px solid lightcoral;
 }

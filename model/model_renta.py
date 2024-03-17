@@ -26,7 +26,7 @@ class ModeloRenta():
         except Exception as e:
             flash("Algo salió ma al modificar el registro:\n" + str(e), "error")
             return False
-        flash("Registro modificado con éxito", "success")
+        flash(f"Registro {id} modificado con éxito", "success")
         return True
 
     """

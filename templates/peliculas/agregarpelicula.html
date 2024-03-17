@@ -24,10 +24,21 @@
     <form method="POST" onsubmit="return validateForm()" class="registro">
         <div>
             <div class="registro_datos">
-                <label class="dato"><b>Nombre:</b> <input type="text" placeholder="Nombre" name="nombre"  required></label>
-                <label class="dato"><b>Genero:</b> <input type="text" placeholder="Genero" name="genero"></label>
-                <label class="dato"><b>Duracion:</b> <input type="number" min="0" step="1" placeholder="120" name="duracion"></label>
-                <label class="dato"><b>Inventario:</b> <input type="number" min="0" step="1" placeholder="1" name="inventario" required></label>
+                <label class="dato"><b>Nombre:</b> <input type="text" placeholder="Nombre" name="nombre"  required {% if data %}
+                    value="{{data.nombre}}"
+                    {% endif %}></label>
+                <label class="dato"><b>Genero:</b> <input type="text" placeholder="Genero" name="genero"
+                    {% if data %}
+                    value="{{data.genero}}"
+                    {% endif %}></label>
+                <label class="dato"><b>Duracion:</b> <input type="number" min="0" step="1" placeholder="120" name="duracion"
+                    {% if data %}
+                    value="{{data.duracion}}"
+                    {% endif %}></label>
+                <label class="dato"><b>Inventario:</b> <input type="number" min="0" step="1" placeholder="1" name="inventario" required
+                    {% if data %}
+                    value="{{data.inventario}}"
+                    {% endif %}></label>
             </div>
             <div class="botones_utilidad">
                 <input type="submit" value="Agregar">
@@ -35,22 +46,4 @@
         </div>
     </form>
 </body>
-<script>
-    function validateForm()
-    {
-        var nombre = document.forms["nombre"].value;
-        var inventario = document.forms["inventario"].value;
-        if(nombre == null || nombre == "")
-        {
-            window.alert("El nombre no puede estar vacio.");
-            return false;
-        }
-        if(inventario == null)
-        {
-            window.alert("El inventario no puede estar vacio.");
-            return false;
-        }
-        return true;
-    }
-</script>
 </html>

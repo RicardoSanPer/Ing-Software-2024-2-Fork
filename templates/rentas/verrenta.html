@@ -25,18 +25,20 @@
             <div class="registro_datos">
                 <label class="dato"><b>ID:</b> {{ data.idRentar}}</label>
                 <label class="dato"><b>ID Usuario:</b> {{ data.idUsuario}}</label>
-                <label class="dato"><b>IDP Pelicula:</b> {{ data.idPelicula}}</label>
-                <label class="dato"><b>Fecha:</b> {{ data.fecha_renta}}</label>
+                <a href="/users/html/ver?idUsuario={{ data.idUsuario }}" class="link ver" target="_blank">Ver Usuario</a>
+                <label class="dato"><b>ID Pelicula:</b> {{ data.idPelicula}}</label>
+                <a href="/movies/html/ver?idPelicula={{ data.idPelicula }}" class="link ver" target="_blank">Ver Pelicula</a>
+                <label class="dato"><b>Fecha:</b> {{ data.fecha_renta.strftime('%d, %b %Y')}}</label>
                 <label class="dato"><b>Dias:</b> {{ data.dias_de_renta}}</label>
                 <label class="dato"><b>Estatus:</b>{% if data.estatus %} 
                    Devuelto
                    {% else %}
-                   No devuelto
+                   No devuelto {% if late %}(Retrasado){% endif %}
                 {% endif %}
                 </label>
             </div>
             <div class="botones_utilidad">
-                <a href="/rents/html/modificar?idRentar={{data.idRentar}}" class="link mod">Modificar</a>
+                <a href="/rents/html/modificar?idRentar={{data.idRentar}}" class="link mod">Cambiar Estatus</a>
             </div>
         </div>
     </div>

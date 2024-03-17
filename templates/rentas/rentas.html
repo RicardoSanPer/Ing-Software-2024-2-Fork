@@ -23,18 +23,18 @@
     {% endwith %}
     <div>
         {% for data in data %}
-        <div class="registro">
+        <div class="registro {% if data[1] %} late {% endif %}" >
             <div class="registro_id">
-                <label>{{ data.idRentar }}</label>
+                <label>{{ data[0].idRentar }}</label>
             </div>
             <div>
                 <div class="registro_datos">
-                    <label class="dato"><b>Fecha:</b> {{ data.fecha_renta }}</label>
-                    <label class="dato"><b>Dias:</b> {{ data.dias_de_renta }}</label>
+                    <label class="dato"><b>Fecha:</b> {{ data[0].fecha_renta.strftime('%d, %b %Y') }}</label>
+                    <label class="dato"><b>Dias:</b> {{ data[0].dias_de_renta }}</label>
                 </div>
                 <div class="botones_utilidad">
-                    <a href="/rents/html/ver?idRentar={{ data.idRentar }}" class="link ver">Ver</a>
-                    <a href="/rents/html/modificar?idRentar={{ data.idRentar }}" class="link mod">Modificar</a>
+                    <a href="/rents/html/ver?idRentar={{ data[0].idRentar }}" class="link ver">Ver</a>
+                    <a href="/rents/html/modificar?idRentar={{ data[0].idRentar }}" class="link mod">Cambiar Estatus</a>
                 </div>
             </div>
         </div>
