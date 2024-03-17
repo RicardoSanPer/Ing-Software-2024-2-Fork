@@ -110,3 +110,18 @@ class ModeloUsuario():
             flash(f"Algo salio mal al obtener los datos para ID {str(id)}:\n" + str(e), "error")
             return None
         return data
+    
+    """
+    Obtiene todos los registros de la tabla Usuarios
+
+    Returns
+    -------
+    data : resultado del query. None si ocurre algun error
+    """
+    def obtenerAll():
+        data = None
+        try:
+            data = Usuarios.query.all()
+        except Exception as e:
+            flash("Algo salio mal al obtener los datos:\n" + str(e))
+        return data

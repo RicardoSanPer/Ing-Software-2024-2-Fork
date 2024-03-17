@@ -80,3 +80,18 @@ class ModeloRenta():
             return False
         flash("Registro agregado con éxito", "success")
         return True
+    
+    """
+    Obtiene todos los registros de la tabla Rentas
+
+    Returns
+    -------
+    data : resultado del query. None si ocurre algun error
+    """
+    def obtenerAll():
+        data = None
+        try:
+            data = Rentas.query.all()
+        except Exception as e:
+            flash("Algo salio mal al obtener los datos:\n" + str(e))
+        return data

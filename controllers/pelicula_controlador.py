@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from alchemyClasses import db
 
-from alchemyClasses.peliculas import Peliculas
 from model.model_pelicula import ModeloPelicula
 
 bp_pelicula = Blueprint("movies", __name__, url_prefix="/movies")
@@ -9,7 +8,7 @@ bp_pelicula = Blueprint("movies", __name__, url_prefix="/movies")
 ##Pagina principal de peliculas. Imprime la lista de todos los registros
 @bp_pelicula.route("/html")
 def html_controller():
-    mov = Peliculas.query.all()
+    mov = ModeloPelicula.obtenerAll()
     return render_template('/peliculas/peliculas.html',data=mov)
 
 ##ver informacion de pelicula
@@ -40,7 +39,7 @@ def modificar_pelicula():
     ## Cargar form con datos de la pelicula a modificar
     if request.method == "GET":     
         id = request.args["idPelicula"]
-        data = Peliculas.query.get(id)
+        data = ModeloPelicula.obtenerPelicula(id)
 
         ## Si se intenta modificar una pelicula inexistente
         if(data == None):

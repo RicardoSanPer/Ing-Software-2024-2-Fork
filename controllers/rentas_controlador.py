@@ -3,7 +3,6 @@ import datetime as dt
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from alchemyClasses import db
 
-from alchemyClasses.rentas import Rentas
 from model.model_renta import ModeloRenta
 
 bp_renta = Blueprint("rents", __name__, url_prefix="/rents")
@@ -11,7 +10,7 @@ bp_renta = Blueprint("rents", __name__, url_prefix="/rents")
 ##Pagina principal de peliculas. Imprime la lista de todos los registros
 @bp_renta.route("/html")
 def html_controller():
-    ren = Rentas.query.all()
+    ren = ModeloRenta.obtenerAll()
     today = dt.date.today()
 
     listData = []
@@ -47,7 +46,7 @@ def modificar_renta():
     ## Cargar form con datos de la pelicula a modificar
     if request.method == "GET":     
         id = request.args["idRentar"]
-        data = Rentas.query.get(id)
+        data = ModeloRenta.obtenerRenta(id)
 
         ## Si se intenta modificar una pelicula inexistente
         if(data == None):

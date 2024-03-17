@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from alchemyClasses import db
 
-from alchemyClasses.usuarios import Usuarios
 from model.model_usuario import ModeloUsuario
 
 bp_usuario = Blueprint("users", __name__, url_prefix="/users")
@@ -9,7 +8,7 @@ bp_usuario = Blueprint("users", __name__, url_prefix="/users")
 ##Pagina principal de usuarios. Imprime la lista de todos los registros
 @bp_usuario.route("/html")
 def html_controller():
-    users = Usuarios.query.all()
+    users = ModeloUsuario.obtenerAll()
     return render_template('/usuarios/usuarios.html',data=users)
 
 ##ver informacion de usuario
@@ -39,7 +38,7 @@ def borrar_usuarios():
 def modificar_usuario():
     if request.method == "GET":     
         id = request.args["idUsuario"]
-        data = Usuarios.query.get(id)
+        data = ModeloUsuario.obtenerUsuario(id)
         
         ##Si se intenta modificar un id inexistente
         if(data == None):
