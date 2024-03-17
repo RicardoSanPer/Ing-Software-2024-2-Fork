@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head">
+        <h1>Rentas</h1>
+        <a href="/" class="link">Volver</a>
+        <a href="/rents/html/agregar" class="link">Agregar nuevo</a>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div>
+        {% for data in data %}
+        <div class="registro">
+            <div class="registro_id">
+                <label>{{ data.idRentar }}</label>
+            </div>
+            <div>
+                <div class="registro_datos">
+                    <label class="dato"><b>Fecha:</b> {{ data.fecha_renta }}</label>
+                    <label class="dato"><b>Dias:</b> {{ data.dias_de_renta }}</label>
+                </div>
+                <div class="botones_utilidad">
+                    <a href="/rents/html/ver?idRentar={{ data.idRentar }}" class="link ver">Ver</a>
+                    <a href="/rents/html/modificar?idRentar={{ data.idRentar }}" class="link mod">Modificar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

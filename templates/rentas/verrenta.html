@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head">
+        <h1>Datos de Renta</h1>
+        <a href="/rents/html" class="link">Volver</a>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>ID:</b> {{ data.idRentar}}</label>
+                <label class="dato"><b>ID Usuario:</b> {{ data.idUsuario}}</label>
+                <label class="dato"><b>IDP Pelicula:</b> {{ data.idPelicula}}</label>
+                <label class="dato"><b>Fecha:</b> {{ data.fecha_renta}}</label>
+                <label class="dato"><b>Dias:</b> {{ data.dias_de_renta}}</label>
+                <label class="dato"><b>Estatus:</b>{% if data.estatus %} 
+                   Devuelto
+                   {% else %}
+                   No devuelto
+                {% endif %}
+                </label>
+            </div>
+            <div class="botones_utilidad">
+                <a href="/rents/html/modificar?idRentar={{data.idRentar}}" class="link mod">Modificar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

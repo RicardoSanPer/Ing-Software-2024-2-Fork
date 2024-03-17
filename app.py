@@ -4,7 +4,7 @@ from alchemyClasses import db
 
 from controllers import usuario_controlador
 from controllers import pelicula_controlador
-
+from controllers import rentas_controlador
 """
 
 MAIN
@@ -19,6 +19,7 @@ db.init_app(app)
 
 app.register_blueprint(usuario_controlador.bp_usuario)
 app.register_blueprint(pelicula_controlador.bp_pelicula)
+app.register_blueprint(rentas_controlador.bp_renta)
 
 @app.route('/')
 def hello_world():  # put application's code here
