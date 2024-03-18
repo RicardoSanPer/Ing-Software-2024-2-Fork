@@ -13,3 +13,5 @@ Por Ricardo Sánchez Pérez
 
 ## Ejecución
 Ejecutar el script ``app.py`` con Python. Acceder a la direccion indicada en la consola utilizando un navegador web.
+
+Se ejecuta con el ambiente virtual ``penv-2``
