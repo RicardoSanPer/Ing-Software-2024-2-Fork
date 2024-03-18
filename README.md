@@ -10,3 +10,6 @@ Repositorio oficial de la materia de Ingenieria de Software de la Facultad de Ci
 
 ## Practica 3
 Por Ricardo Sánchez Pérez
+
+## Ejecución
+Ejecutar el script ``app.py`` con Python. Acceder a la direccion indicada en la consola utilizando un navegador web.
