@@ -45,7 +45,7 @@ class ModeloRenta():
         try:
             data = Rentas.query.get(id)
             if data == None:
-                raise Exception(f"El registro {str(id)} no existe")
+                raise Exception(f"El registro con ID {str(id)} no existe")
         except Exception as e:
             flash(f"Algo salió mal al obtener los datos para ID {str(id)}:\n" + str(e), "error")
             return None
