@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    <title>Agregar Renta</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="head">
+        <h1>Agregar Renta</h1>
+        <div class="botones_utilidad">
+            <a href="/rents/html" class="link">Volver</a>
+        </div>
+    </div>
+    <form method="POST" class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>ID Usuario</b> <input type="text" placeholder="ID de Usuario" name="idUsuario"  required
+                    {% if data %}
+                    value="{{data.idUsuario}}"
+                    {% endif %}></label>
+                <label class="dato"><b>ID Pelicula:</b> <input type="text" placeholder="ID de Pelicula" name="idPelicula" required
+                    {% if data %}
+                    value="{{data.idPelicula}}"
+                    {% endif %}></label>
+                <label class="dato"><b>Fecha:</b> <input type="date" name="fecha_renta" 
+                    {% if data %}
+                    value="{{ data.fecha_renta}}"
+                    {% else %}
+                    value="{{ fecha }}"
+                    {% endif %}></label>
+                <label class="dato"><b>Dias de renta:</b> <input type="number" min="0" step="1" placeholder="1" name="dias_de_renta" required
+                    {% if data %}
+                    value="{{data.dias_de_renta}}"
+                    {% endif %}></label>
+            </div>
+            <div class="botones_utilidad">
+                <input type="submit" value="Agregar">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

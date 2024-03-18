@@ -1,0 +1,5 @@
+https://github.com/RicardoSanPer/Ing-Software-2024-2-Fork/tree/2-pymysql-alchemy
+
+Por Ricardo Sanchez Perez
+
+Practica en la rama 2-pymysql-alchemy

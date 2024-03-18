@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Datos de Renta</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="head">
+        <h1>Datos de Renta</h1>
+        <div class="botones_utilidad">
+            <a href="/rents/html" class="link">Volver</a>
+        </div>
+    </div>
+    <div class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>ID:</b> {{ data.idRentar}}</label>
+                <label class="dato"><b>ID Usuario:</b> {{ data.idUsuario}}</label>
+                <a href="/users/html/ver?idUsuario={{ data.idUsuario }}" class="link ver" target="_blank">Ver Usuario</a>
+                <label class="dato"><b>ID Pelicula:</b> {{ data.idPelicula}}</label>
+                <a href="/movies/html/ver?idPelicula={{ data.idPelicula }}" class="link ver" target="_blank">Ver Pelicula</a>
+                <label class="dato"><b>Fecha:</b> {{ data.fecha_renta.strftime('%d, %b %Y')}}</label>
+                <label class="dato"><b>Dias:</b> {{ data.dias_de_renta}}</label>
+                <label class="dato"><b>Estatus:</b>{% if data.estatus %} 
+                   Devuelto
+                   {% else %}
+                   No devuelto {% if late %}<a style="color:red">(Retrasado)</a>{% endif %}
+                {% endif %}
+                </label>
+            </div>
+            <div class="botones_utilidad">
+                <a href="/rents/html/modificar?idRentar={{data.idRentar}}" class="link mod">Cambiar Estatus</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

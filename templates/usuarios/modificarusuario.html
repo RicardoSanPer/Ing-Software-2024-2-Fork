@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    <title>Modificar Usuario</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="head">
+        <h1>Modificar Usuario</h1>
+        <div class="botones_utilidad">
+            <a href="/users/html/ver?idUsuario={{ data.idUsuario }}" class="link">Cancelar</a>
+        </div>
+    </div>
+    <form method="POST" class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><input type="hidden" name="idUsuario" value={{data.idUsuario}}><b>ID:</b> {{ data.idUsuario}}</label>
+                <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" value={{data.nombre}} required></label>
+                <label class="dato"><b>Apellido Paterno:</b> <input type="text" value={{data.apPat}} name="apPat" required></label>
+                <label class="dato"><b>Apellido Materno:</b> <input type="text" value={{data.apMat}} name="apMat"></label>
+                <label class="dato"><b>Correo:</b> <input type="email" value={{data.email}} name="email"></label>
+                <label class="dato"><b>Super Usuario:</b> <input type="checkbox" name="superUser"
+                    {% if data.superUser %}
+                        checked
+                    {% endif %} value="1" id="superUser_id"></label>
+            </div>
+            <div class="botones_utilidad">
+                <input type="submit" value="Modificar">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

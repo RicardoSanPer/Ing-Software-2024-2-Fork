@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    <title>Agregar Usuario</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="head">
+        <h1>Agregar Usuario</h1>
+        <div class="botones_utilidad">
+            <a href="/users/html" class="link">Volver</a>
+        </div>
+    </div>
+    <form method="POST" class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" placeholder="Nombre" required
+                    {% if data %}
+                    value="{{data.nombre}}"
+                    {% endif %}></label>
+                <label class="dato"><b>Apellido Paterno:</b> <input type="text" placeholder="Apellido Paterno" name="apPat" 
+                    {% if data %}
+                    value="{{data.apPat}}"
+                    {% endif %}required></label>
+                <label class="dato"><b>Apellido Materno:</b> <input type="text" placeholder="Apellido Materno" name="apMat"
+                    {% if data %}
+                    value="{{data.apMat}}"
+                    {% endif %}></label>
+                <label class="dato"><b>Correo:</b> <input type="email" placeholder="Email@dominio.com" name="email"
+                    {% if data %}
+                    value="{{data.email}}"
+                    {% endif %}></label>
+                <label class="dato"><b>Super Usuario:</b> <input type="checkbox" name="superUser" value="0" id="superUser_id"
+                    {% if data and data.superUser%}
+                    checked
+                    {% endif %}></label>
+                <label class="dato"><b>Contraseña:</b> <input type="password" name="password" required></label>
+                <label class="dato"><b>Confirmar:</b> <input type="password" name="password_conf" required></label>
+            </div>
+            <div class="botones_utilidad">
+                <input type="submit" value="Agregar">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

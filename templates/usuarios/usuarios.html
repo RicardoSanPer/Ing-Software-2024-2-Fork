@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Usuarios</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="head">
+        <h1>Usuarios</h1>
+        <div class="botones_utilidad">
+            <a href="/" class="link">Volver</a>
+            <a href="/users/html/agregar" class="link">Agregar nuevo</a>
+        </div>
+    </div>
+    <div>
+        {% for data in data %}
+        <div class="registro">
+            <div class="registro_id">
+                <label>{{ data.idUsuario }}</label>
+            </div>
+            <div>
+                <div class="registro_datos">
+                    <label class="dato"><b>Nombre:</b> {{ data.nombre }}</label>
+                    <label class="dato"><b>Correo:</b> {{ data.email }}</label>
+                </div>
+                <div class="botones_utilidad">
+                    <a href="/users/html/ver?idUsuario={{ data.idUsuario }}" class="link ver">Ver</a>
+                    <a href="/users/html/modificar?idUsuario={{ data.idUsuario }}" class="link mod">Modificar</a>
+                    <a href="/users/html/eliminar?idUsuario={{ data.idUsuario }}" class="link del">Eliminar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

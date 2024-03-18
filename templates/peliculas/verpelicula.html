@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Datos de Pelicula</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="head">
+        <h1>Datos de Pelicula</h1>
+        <div class="botones_utilidad">
+            <a href="/movies/html" class="link">Volver</a>
+        </div>
+    </div>
+    <div class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><b>ID:</b> {{ data.idPelicula}}</label>
+                <label class="dato"><b>Nombre:</b> {{ data.nombre}}</label>
+                <label class="dato"><b>Genero:</b> {{ data.genero}}</label>
+                <label class="dato"><b>Duracion:</b> {{ data.duracion}} mins.</label>
+                <label class="dato"><b>Inventario:</b> {{ data.inventario}}</label>
+            </div>
+            <div class="botones_utilidad">
+                <a href="/movies/html/modificar?idPelicula={{data.idPelicula}}" class="link mod">Modificar</a>
+                <a href="/movies/html/eliminar?idPelicula={{ data.idPelicula }}" class="link del">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

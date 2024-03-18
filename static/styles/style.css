@@ -1,0 +1,136 @@
+.registro
+{
+    padding: 20px;
+    margin: 10px;
+
+    box-shadow: 2px 2px 2px lightgray;
+
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+.registro_id
+{
+    font-size: x-large;
+    color: gray;
+    text-align: center;
+    align-items: stretch;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+}
+.botones_utilidad
+{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.head
+{
+    margin: 20px;
+}
+
+.registro_datos
+{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.dato
+{
+    font-size: large;
+    margin: 5px;
+}
+
+.ver
+{
+    background-color: lightblue;
+}
+
+.mod
+{
+    background-color: lightgreen;
+}
+
+.del
+{
+    background-color: lightcoral;
+}
+
+.main
+{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px lightgray;
+    width: 250px;
+    padding: 50px;
+    margin: 25px;
+    font-size: xx-large;
+    color: black;
+    transition: 0.5s;
+}
+.main:hover
+{
+    transform: scale(1.1);
+}
+
+.link
+{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+
+    box-shadow: 1px 1px 1px lightgray;
+    transition: 0.5s;
+}
+
+.link:hover
+{
+    background-color: lightyellow;
+
+    transform: scale(1.1);
+}
+
+.link:focus
+{
+    background-color: lightgrey;
+    transform: scale(0.9);
+}
+
+th
+{
+    padding: auto;
+}
+
+.alert
+{
+    padding: 10px;
+    margin: 5px;
+}
+
+.success
+{
+    background-color: lightgreen;
+    border-radius: 5px;
+    border: solid 2px green;
+}
+
+.error
+{
+    background-color: lightcoral;
+    border-radius: 5px;
+    border: solid 2px red;
+}
+
+.late
+{
+    border: 5px solid lightcoral;
+}

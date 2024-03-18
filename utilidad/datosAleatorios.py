@@ -1,0 +1,99 @@
+import json
+import random
+from datetime import datetime, timedelta
+
+"""Clase RandomData que lee un archivo json para obtener datos de muestra"""
+class RandomData():
+    '''
+    Constructor
+
+    Params
+    ------
+    fileName : Nombre del archivo json que contiene los datos que se quieren leer
+    '''
+    def __init__(self, fileName: str):
+        self.dataLength = 0
+        try:
+            self.file = open("utilidad/" + fileName)
+            self.data = json.load(self.file)
+            self.file.close()
+            self.dataLength = len(self.data)
+        except Exception as e:
+            print("Algo salio mal al intentar leer los datos")
+            print("\t" + str(e))
+            self.file = None
+            self.data = None
+            self.dataLength = 0
+        
+    '''
+    Dado el nombre de una columna, obtiene un dato aleatorio de dicha columna
+
+    Params
+    ------
+    dato : nombre de la columna de la cual se quiere extraer un dato
+
+    Returns
+    -------
+    datoObtenido : dato aleatorio
+    '''
+    def GetRandomData(self, dato: str):
+        if self.dataLength == 0:
+            return None
+        
+        index = random.randint(0, self.dataLength - 1)
+        datoObtenido = None
+
+        try:
+            datoObtenido = self.data[index][dato]
+        except Exception as e:
+            print("Ocurrio un error al tratar de obtener un dato aleatorio:")
+            print("\t"+ str(e))
+
+        return datoObtenido
+    
+    '''
+    Genera una entrada aleatoria
+
+    Returns
+    -------
+    entry : diccionario con un valor aleatorio para cada atributo
+    '''
+    def GenerateRandomEntry(self):
+        if self.dataLength == 0:
+            return {}
+        
+        entry = {}
+
+        for key in self.data[0].keys():
+            entry[key] = self.GetRandomData(key)
+        
+        return entry
+    
+'''
+Genera una fecha aleatoria entre hoy y un año atras en formato Y-m-d
+
+Returns
+-------
+formatted : Fecha en formato para insercion en pymysql
+'''
+def GenerateRandomDate():
+    randomDay = random.randint(0, 365)
+    randomDate = datetime.now() - timedelta(randomDay)
+    formatted = randomDate.strftime('%Y-%m-%d')
+
+    return formatted
+
+'''
+Obtiene un elemento aleatorio de una lista
+
+Params
+------
+list : lista de elementos
+
+Returns
+-------
+Elemento aleatorio de la lista
+'''
+def GetRandomElement(list):
+    r = random.randint(0, len(list) - 1)
+    return list[r]

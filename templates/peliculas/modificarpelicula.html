@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    <title>Modificar Pelicula</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="head">
+        <h1>Modificar Pelicula</h1>
+        <div class="botones_utilidad">
+            <a href="/movies/html/ver?idPelicula={{ data.idPelicula }}" class="link">Volver</a>
+        </div>
+    </div>
+    <form method="POST" class="registro">
+        <div>
+            <div class="registro_datos">
+                <label class="dato"><input type="hidden" name="idPelicula" value={{data.idPelicula}}><b>ID:</b> {{ data.idPelicula}}</label>
+                <label class="dato"><b>Nombre:</b> <input type="text" name="nombre" value={{data.nombre}} required></label>
+                <label class="dato"><b>Genero:</b> <input type="text" value={{data.genero}} name="genero"></label>
+                <label class="dato"><b>Duracion:</b> <input type="number" min="0" step="1" value={{data.duracion}} name="duracion"></label>
+                <label class="dato"><b>Inventario:</b> <input type="number" min="0" step="1" value={{data.inventario}} name="inventario" required></label>
+            </div>
+            <div class="botones_utilidad">
+                <input type="submit" value="Modificar">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
