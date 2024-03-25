@@ -1,6 +1,6 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-import Usuarios from '../pages/Usuarios';
-import Home from "../pages/Home";
+import Usuarios from '../../pages/Usuarios';
+import Home from "../../pages/Home";
 
 const Main = () =>
 (

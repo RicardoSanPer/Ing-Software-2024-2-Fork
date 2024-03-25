@@ -1,0 +1,16 @@
+.link-boton
+{
+    text-decoration: none;
+    font-size: x-large;
+    color:white;
+
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    margin: 10px;
+
+    background: linear-gradient(125deg, rgb(224, 177, 255) 0%, rgb(151, 202, 255) 100%);
+    
+    border-radius: 50px;
+}

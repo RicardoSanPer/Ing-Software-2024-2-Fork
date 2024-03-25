@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 
 
-import Navigation from "./components/Navigation"
-import Main from "./components/Main"
+import Navigation from "./components/common/Navigation"
+import Main from "./components/common/Main"
 
 function App() {
   return (
