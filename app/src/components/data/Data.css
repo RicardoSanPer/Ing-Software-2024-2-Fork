@@ -1,0 +1,45 @@
+.data-container-simple
+{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 3px 3px 3px lightgrey;
+
+    align-items: center;
+    border-radius: 30px;
+}
+
+.data-container-simple-id
+{
+    font-size: xx-large;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+    border-right: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(0deg, rgba(224, 177, 255,0) 0%, rgb(224, 177, 255) 33%, rgb(151, 202, 255) 66%, rgba(151, 202, 255,0) 100%);
+}
+
+.data-container-data
+{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+}
+
+.data-info
+{
+    font-size: large;
+    margin: auto;
+    margin-left: 0px;
+    padding: 10px;
+    text-align: center;
+}
+
+.data-buttons
+{
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}

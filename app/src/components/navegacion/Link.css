@@ -1,16 +1,60 @@
 .link-boton
 {
-    text-decoration: none;
-    font-size: x-large;
-    color:white;
+    display: block;
 
-    padding: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    text-decoration: none;
+    color:white;
 
     margin: 10px;
 
-    background: linear-gradient(125deg, rgb(224, 177, 255) 0%, rgb(151, 202, 255) 100%);
-    
     border-radius: 50px;
+
+    transition: 0.1s;
+}
+
+.link-large
+{
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.link-small
+{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.link-nav
+{
+    background: linear-gradient(125deg, rgb(224, 177, 255) 0%, rgb(151, 202, 255) 100%);
+    font-size: x-large;
+}
+
+.link-boton:hover
+{
+    transform: scale(1.1);
+}
+
+.link-boton:active
+{
+    transform: scale(0.9);
+}
+
+.link-mod
+{
+    border: 2px solid lightgreen;
+    color: lightgreen;
+}
+
+.link-ver
+{
+    border: 2px solid lightskyblue;
+    color: lightskyblue;
+}
+.link-del
+{
+    border: 2px solid lightcoral;
+    color: lightcoral;
 }
