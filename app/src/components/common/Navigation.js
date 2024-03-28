@@ -4,6 +4,7 @@ import Link from '../navegacion/Link';
 
 import "./Navigation.css"
 
+//Barra superior de navegacion
 const Navigation = () => 
 (
     <nav className='nav-bar-container'>

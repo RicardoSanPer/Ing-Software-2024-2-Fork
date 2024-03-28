@@ -2,6 +2,9 @@ import { NavLink } from 'react-router-dom';
 
 import "./Link.css"
 
+//Componente de boton de vinculo
+//Toma como parametro la url a donde redirecciona, el texto con el que se renderiza el boton
+//y el tipo de boton
 function Link({url, texto, variante})
 {
     let class_Name = "link-boton";

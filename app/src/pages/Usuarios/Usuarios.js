@@ -2,6 +2,7 @@ import React from "react";
 import DataSimple from "../../components/data/DataSimple";
 import sample_usuarios from "../../data/usuarios";
 
+//Pagina de usuarios. Muesta una lista de todos los registros
 const Usuarios = () => {
     let data = []
     for(let i = 0; i < sample_usuarios.length; i++)

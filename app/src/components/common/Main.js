@@ -8,7 +8,7 @@ const Main = () =>
     <Routes>
         <Route path="/" Component={Home}></Route>
         <Route path="/usuarios" Component={Usuarios}></Route>
-        <Route path="/usuarios/ver" Component={ReadUsuarios}></Route>
+        <Route path="/usuarios/ver/:idUsuario" Component={ReadUsuarios}></Route>
     </Routes>
 );
 
