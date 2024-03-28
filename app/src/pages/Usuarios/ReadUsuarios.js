@@ -9,9 +9,10 @@ import Usuarios from "./Usuarios";
 
 const ReadUsuarios = () =>
     {
-        let { idUsuario } = useParams();
-        idUsuario = parseInt(idUsuario);
-        let usuario = sample_usuarios[idUsuario];
+        //Obtener id del usuario a ver
+        let { id } = useParams();
+        id = parseInt(id);
+        let usuario = sample_usuarios[id];
 
         //Regresar a pagina de usuarios si la informacion no existe
         if(!usuario)
@@ -20,7 +21,7 @@ const ReadUsuarios = () =>
         }
         //Datos para renderizado. Etiqueta y valor a desplegar
         let data = {
-            "ID de Usuario": idUsuario,
+            "ID de Usuario": id,
             "Nombre": usuario.nombre,
             "Apellido Paterno":usuario.apPat,
             "Apellido Materno":usuario.apMat,
@@ -32,15 +33,7 @@ const ReadUsuarios = () =>
             data["Superusuario"] = true
         };
         return(
-            <div className="data-container">
-                <div>
-                <Data data={data}/> 
-                </div>
-                <div class="data-buttons">
-                    <Link url="" texto="Modificar" variante="modificar"/>
-                    <Link url="" texto="Eliminar" variante="eliminar"/>
-                </div>  
-            </div>
+            <Data id={id} entryType={"usuarios"} data={data}/>
         );
     };
 
