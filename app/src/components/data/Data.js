@@ -9,12 +9,12 @@ const Data = ({id, entryType, data}) =>
         <div className="data-container">
           <div className="data-container-data">
               {Object.entries(data).map(([key, value]) => (
-              <label className="data-info">
+              <label className="data-info" key={key}>
                 <b>{key}:</b> {String(value)}
               </label>
             ))}
           </div>
-          <div class="data-buttons">
+          <div className="data-buttons">
               <Link url={`/${entryType}/modificar/${id}`} texto="Modificar" variante="modificar"/>
               <Link url="" texto="Eliminar" variante="eliminar"/>
           </div>  

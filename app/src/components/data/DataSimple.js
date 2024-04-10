@@ -11,11 +11,11 @@ const DataSimple = ({id, entryType, dict}) =>
             </div>
             <div className="data-container-data">
                 {Object.entries(dict).map(([key, value]) => (
-                <label className="data-info">
+                <label className="data-info" key={key}>
                 <b>{key}:</b> {String(value)}
                 </label>
             ))}
-                <div class="data-buttons">
+                <div className="data-buttons">
                     <Link url={`/${entryType}/ver/${id}`} texto="Ver" variante="ver"/>
                     <Link url={`/${entryType}/modificar/${id}`} texto="Modificar" variante="modificar"/>
                     <Link url="" texto="Eliminar" variante="eliminar"/>

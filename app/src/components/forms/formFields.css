@@ -1,0 +1,26 @@
+.input-label
+{
+    background-color: lightgrey;
+    border-radius: 50px;
+
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+
+
+    font-size: larger;
+}
+
+.field-text
+{
+    border-radius: 50px;
+    padding: 10px;
+
+    border: solid 2px lightgrey;
+    font-size: large;
+}
+
+.form-field
+{
+    margin: 10px;
+}

@@ -17,7 +17,7 @@ const ReadUsuarios = () =>
         //Regresar a pagina de usuarios si la informacion no existe
         if(!usuario)
         {
-            return <Navigate to="/usuarios" />;;
+            return <Navigate to="/usuarios" />;
         }
         //Datos para renderizado. Etiqueta y valor a desplegar
         let data = {
