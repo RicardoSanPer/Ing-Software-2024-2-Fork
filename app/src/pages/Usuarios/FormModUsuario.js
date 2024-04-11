@@ -15,11 +15,13 @@ function FormModUsuarios({id})
     const [inputs, setInputs] = useState(usuario);
 
     const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-
-        setInputs(values => ({...values, [name]: value}));
+        const { name, value, type, checked } = event.target;
+    
+        const newValue = type === 'checkbox' ? checked : value;
+        
+        setInputs(values => ({...values, [name]: newValue}));
       }
+      
 
     const handleSubmit = (event) =>
     {
@@ -31,10 +33,11 @@ function FormModUsuarios({id})
     return (
     <form onSubmit={handleSubmit} className="data-container">
         <div className="data-container-data">
-        <Input type="text" name="nombre" label="Nombre" defaultValue={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
-        <Input type="text" name="apPat" label="Apellido Paterno" defaultValue={inputs.apPat} required={true} onChange={(e) => handleChange(e)} />
-        <Input type="text" name="apMat" label="Apellido Materno" defaultValue={inputs.apMat} required={true} onChange={(e) => handleChange(e)} />
-        <Input type="email" name="email" label="Correo" defaultValue={inputs.email} required={true} onChange={(e) => handleChange(e)} />
+        <Input type="text" name="nombre" label="Nombre" value={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
+        <Input type="text" name="apPat" label="Apellido Paterno" value={inputs.apPat} required={false} onChange={(e) => handleChange(e)} />
+        <Input type="text" name="apMat" label="Apellido Materno" value={inputs.apMat} required={false} onChange={(e) => handleChange(e)} />
+        <Input type="email" name="email" label="Correo" value={inputs.email} required={false} onChange={(e) => handleChange(e)} />
+        <CheckInput name="superUser" label="Super Usuario" checked={inputs.superUser} required={false} onChange={(e) => handleChange(e)}/>
         </div>
         <div className="data-buttons">
             <Link url={`/usuarios/ver/${id}`} texto="Volver" variante="ver"/>
