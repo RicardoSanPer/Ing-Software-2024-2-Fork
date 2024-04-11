@@ -2,7 +2,7 @@ import {React, useState} from "react"
 import sample_usuarios from "../../data/usuarios"   
 
 
-import { useParams, Navigate} from 'react-router-dom';
+import { useParams, Navigate, useNavigate} from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import Input from "../../components/forms/Input";
 import Link from "../../components/navegacion/Link";
@@ -11,6 +11,7 @@ import CheckInput from "../../components/forms/CheckInput";
 function FormModUsuarios({id})
 {
     let usuario = sample_usuarios[id];
+    let navigate = useNavigate();
 
     const [inputs, setInputs] = useState(usuario);
 
@@ -28,6 +29,7 @@ function FormModUsuarios({id})
         event.preventDefault();
         sample_usuarios[id] = inputs;
         alert("Usuario actualizado con éxito.");
+        navigate(`/usuarios/ver/${id}`);
     }
     
     return (
