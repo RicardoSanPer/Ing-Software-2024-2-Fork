@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom/client';
 import FormUsuarios from "./FormModUsuario";
 import FormModUsuarios from "./FormModUsuario";
 
-
+//Pagina para el formulario de modificacion de un usuario
 const ModUsuarios = () =>
 {
     //Obtener id del usuario a modificar

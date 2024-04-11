@@ -3,6 +3,7 @@ import Usuarios from '../../pages/Usuarios/Usuarios';
 import Home from "../../pages/Home";
 import ReadUsuarios from '../../pages/Usuarios/ReadUsuarios';
 import ModUsuarios from '../../pages/Usuarios/ModUsuarios';
+import CrearUsuarios from '../../pages/Usuarios/CreateUsuario';
 
 const Main = () =>
 (
@@ -11,6 +12,7 @@ const Main = () =>
         <Route path="/usuarios" Component={Usuarios}></Route>
         <Route path="/usuarios/ver/:id" Component={ReadUsuarios}></Route>
         <Route path="/usuarios/modificar/:id" Component={ModUsuarios}></Route>
+        <Route path="/usuarios/crear" Component={CrearUsuarios}></Route>
     </Routes>
 );
 

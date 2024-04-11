@@ -9,12 +9,20 @@ import Link from "../../components/navegacion/Link";
 import CheckInput from "../../components/forms/CheckInput";
 
 //Formulario para modificar un usuario
-function FormModUsuarios({id})
+function FormCrearUsuarios()
 {
-    let usuario = sample_usuarios[id];
     let navigate = useNavigate();
 
-    const [inputs, setInputs] = useState(usuario);
+    const [inputs, setInputs] = useState(
+        {
+            "nombre": null,
+            "apPat":null,
+            "apMat":null,
+            "email":null,
+            "password":null,
+            "superUser":false
+        }
+        );
 
     //OnChange
     const handleChange = (event) => {
@@ -30,8 +38,9 @@ function FormModUsuarios({id})
     const handleSubmit = (event) =>
     {
         event.preventDefault();
-        sample_usuarios[id] = inputs;
-        alert("Usuario actualizado con éxito.");
+        sample_usuarios.push(inputs);
+        let id = sample_usuarios.length - 1;
+        alert("Usuario creado con éxito.");
         navigate(`/usuarios/ver/${id}`);
     }
     
@@ -42,13 +51,14 @@ function FormModUsuarios({id})
         <Input type="text" name="apPat" label="Apellido Paterno" value={inputs.apPat} required={true} onChange={(e) => handleChange(e)} />
         <Input type="text" name="apMat" label="Apellido Materno" value={inputs.apMat} required={false} onChange={(e) => handleChange(e)} />
         <Input type="email" name="email" label="Correo" value={inputs.email} required={false} onChange={(e) => handleChange(e)} />
+        <Input type="password" name="password" label="Contraseña" value={inputs.password} required={true} onChange={(e) => handleChange(e)} />
         <CheckInput name="superUser" label="Super Usuario" checked={inputs.superUser} required={false} onChange={(e) => handleChange(e)}/>
         </div>
         <div className="data-buttons">
-            <Link url={`/usuarios/ver/${id}`} texto="Volver" variante="ver"/>
+            <Link url={`/usuarios/`} texto="Volver" variante="ver"/>
             <input type="submit" className="link-boton link-mod" value="Enviar"/>
         </div>
     </form>);
 };
 
-export default FormModUsuarios;
+export default FormCrearUsuarios;

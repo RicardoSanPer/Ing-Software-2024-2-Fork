@@ -7,6 +7,8 @@ import Link from "../../components/navegacion/Link";
 import { useParams, Navigate } from 'react-router-dom';
 import Usuarios from "./Usuarios";
 
+
+//Pagina para desplegar la informacion de un usuario
 const ReadUsuarios = () =>
     {
         //Obtener id del usuario a ver
