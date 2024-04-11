@@ -1,8 +1,13 @@
 import "./Data.css"
 import Link from "../navegacion/Link"
 
-
-//Contenedor de datos. Despliega todos los datos y botones para modificar o eliminar el registro
+/**
+ * Contenedor de datos. Despliega todos los datos y botones para modificar o eliminar el registro
+ * @param {number} id : id de la entrada del dato a desplegar
+ * @param {string} entryType : Tipo de entrada del dato (usuario, pelicula o renta)
+ * @param {Object} data : Par de llaves y valores que contienen los datos de la entrada
+ * @returns : Componente de renderizado
+ */
 const Data = ({id, entryType, data}) =>
 {
     return(

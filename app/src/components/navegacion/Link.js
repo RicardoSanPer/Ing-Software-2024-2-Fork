@@ -2,9 +2,14 @@ import { NavLink } from 'react-router-dom';
 
 import "./Link.css"
 
-//Componente de boton de vinculo
-//Toma como parametro la url a donde redirecciona, el texto con el que se renderiza el boton
-//y el tipo de boton
+/**
+ * Componente de boton de redireccionamiento. Renderiza un boton estilizado que reenvia al usuario a una
+ * direccion al ser presionado.
+ * @param {string} url : direccion a la que redirige
+ * @param {string} texto : texto a mostrar en el boton
+ * @param {string} variante : tipo de variante para el estilizado (ver, modificar, eliminar)
+ * @returns : Componente de boton de redireccionamiento
+ */
 function Link({url, texto, variante})
 {
     let class_Name = "link-boton";

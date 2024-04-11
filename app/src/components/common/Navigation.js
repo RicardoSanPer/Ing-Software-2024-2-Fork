@@ -4,7 +4,10 @@ import Link from '../navegacion/Link';
 
 import "./Navigation.css"
 
-//Barra superior de navegacion
+/**
+ * Componente que renderiza una barra de navegación en todas las páginas
+ * @returns : Componente de barra de navegacion
+ */
 const Navigation = () => 
 (
     <nav className='nav-bar-container'>

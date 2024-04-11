@@ -2,13 +2,14 @@ import {React, useState} from "react"
 import sample_usuarios from "../../data/usuarios"   
 
 
-import { useParams, Navigate, useNavigate} from 'react-router-dom';
-import ReactDOM from 'react-dom/client';
+import { useNavigate} from 'react-router-dom';
 import Input from "../../components/forms/Input";
 import Link from "../../components/navegacion/Link";
 import CheckInput from "../../components/forms/CheckInput";
 
-//Formulario para modificar un usuario
+/**
+ * Form para crear usuarios
+ */
 function FormCrearUsuarios()
 {
     let navigate = useNavigate();

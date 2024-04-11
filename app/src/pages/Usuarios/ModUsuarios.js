@@ -1,13 +1,13 @@
-import {React, useState} from "react"
+import {React} from "react"
 import sample_usuarios from "../../data/usuarios"   
 
 
 import { useParams, Navigate } from 'react-router-dom';
-import ReactDOM from 'react-dom/client';
-import FormUsuarios from "./FormModUsuario";
 import FormModUsuarios from "./FormModUsuario";
 
-//Pagina para el formulario de modificacion de un usuario
+/**
+ * Pagina para modificar un registro de usuario
+ */
 const ModUsuarios = () =>
 {
     //Obtener id del usuario a modificar

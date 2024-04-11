@@ -1,6 +1,8 @@
 import FormCrearUsuarios from "./FormCrearUsuario";
 
-//Pagina para el formulario de creacion de un usuario
+/**
+ * Pagina para crear usuarios
+ */
 const CrearUsuarios = () =>
 {
     return <FormCrearUsuarios/>;
