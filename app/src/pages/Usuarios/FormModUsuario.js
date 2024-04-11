@@ -4,45 +4,41 @@ import sample_usuarios from "../../data/usuarios"
 
 import { useParams, Navigate} from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
-import TextInput from "../../components/forms/TextInput";
+import Input from "../../components/forms/Input";
 import Link from "../../components/navegacion/Link";
+import CheckInput from "../../components/forms/CheckInput";
 
 function FormModUsuarios({id})
 {
     let usuario = sample_usuarios[id];
-    const [inputs, setInputs] = useState({});
+
+    const [inputs, setInputs] = useState(usuario);
 
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
 
-        setInputs(values => ({...values, [name]: value}))
-        console.log("Change");
+        setInputs(values => ({...values, [name]: value}));
       }
 
     const handleSubmit = (event) =>
     {
         event.preventDefault();
-        Object.entries(usuario).map(([key, value]) => {
-            if(inputs[key])
-            {
-                sample_usuarios[id][key] = inputs[key];
-            }
-        })
+        sample_usuarios[id] = inputs;
         alert("Usuario actualizado con éxito.");
     }
-
+    
     return (
-    <form onSubmit={handleSubmit} onChange={handleChange} className="data-container">
+    <form onSubmit={handleSubmit} className="data-container">
         <div className="data-container-data">
-        <TextInput name="nombre" label="Nombre" defaultValue={usuario.nombre} required={true}/>
-        <TextInput name="apPat" label="Apellido Paterno" defaultValue={usuario.apPat} required={false}/>
-        <TextInput name="apMat" label="Apellido Materno" defaultValue={usuario.apMat} required={false}/>
-        <TextInput name="email" label="Correo" defaultValue={usuario.email} required={false}/>
+        <Input type="text" name="nombre" label="Nombre" defaultValue={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
+        <Input type="text" name="apPat" label="Apellido Paterno" defaultValue={inputs.apPat} required={true} onChange={(e) => handleChange(e)} />
+        <Input type="text" name="apMat" label="Apellido Materno" defaultValue={inputs.apMat} required={true} onChange={(e) => handleChange(e)} />
+        <Input type="email" name="email" label="Correo" defaultValue={inputs.email} required={true} onChange={(e) => handleChange(e)} />
         </div>
         <div className="data-buttons">
             <Link url={`/usuarios/ver/${id}`} texto="Volver" variante="ver"/>
-            <input type="submit" className="link-boton link-mod" value="Submit"/>
+            <input type="submit" className="link-boton link-mod" value="Enviar"/>
         </div>
     </form>);
 };
