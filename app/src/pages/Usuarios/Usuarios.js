@@ -13,6 +13,10 @@ const Usuarios = () => {
     let data = []
     for(let i = 0; i < sample_usuarios.length; i++)
     {
+        if(sample_usuarios[i] == null)
+        {
+            continue;
+        }
         data.push(
         //agregar todos los datos a la lista
         <DataSimple id={i} entryType={"usuarios"} dict={

@@ -27,7 +27,7 @@ const DataSimple = ({id, entryType, dict}) =>
                 <div className="data-buttons">
                     <Link url={`/${entryType}/ver/${id}`} texto="Ver" variante="ver"/>
                     <Link url={`/${entryType}/modificar/${id}`} texto="Modificar" variante="modificar"/>
-                    <Link url="" texto="Eliminar" variante="eliminar"/>
+                    <Link url={`/${entryType}/del/${id}`} texto="Eliminar" variante="eliminar"/>
                 </div>
             </div>
         </div>

@@ -3,12 +3,11 @@ import sample_usuarios from "../../data/usuarios"
 
 
 import { useParams, Navigate } from 'react-router-dom';
-import FormModUsuarios from "./FormModUsuario";
 
 /**
  * Pagina para modificar un registro de usuario
  */
-const ModUsuarios = () =>
+const DelUsuarios = () =>
 {
     //Obtener id del usuario a modificar
     let { id } = useParams();
@@ -19,8 +18,9 @@ const ModUsuarios = () =>
     {
         return <Navigate to="/usuarios" />;
     }
-
-    return <FormModUsuarios id={id}/>;
+    sample_usuarios[id] = null;
+    alert("Usuario eliminado con éxito");
+    return <Navigate to="/usuarios" />;
 };
 
-export default ModUsuarios;
+export default DelUsuarios;

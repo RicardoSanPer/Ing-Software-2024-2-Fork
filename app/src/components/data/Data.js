@@ -21,7 +21,7 @@ const Data = ({id, entryType, data}) =>
           </div>
           <div className="data-buttons">
               <Link url={`/${entryType}/modificar/${id}`} texto="Modificar" variante="modificar"/>
-              <Link url="" texto="Eliminar" variante="eliminar"/>
+              <Link url={`/${entryType}/del/${id}`} texto="Eliminar" variante="eliminar"/>
           </div>  
       </div>
     );
