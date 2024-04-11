@@ -21,6 +21,7 @@ const ReadUsuarios = () =>
         //Regresar a pagina de usuarios si la informacion no existe
         if(!usuario)
         {
+            alert("Este registro no existe");
             return <Navigate to="/usuarios" />;
         }
         //Datos para renderizado. Etiqueta y valor a desplegar

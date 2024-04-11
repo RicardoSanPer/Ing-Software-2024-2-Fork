@@ -17,6 +17,7 @@ const ModUsuarios = () =>
     //Regresar a pagina de usuarios si la informacion no existe
     if(!usuario)
     {
+        alert("Este registro no existe");
         return <Navigate to="/usuarios" />;
     }
 
