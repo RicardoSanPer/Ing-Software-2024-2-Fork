@@ -20,6 +20,7 @@ const Data = ({id, entryType, data}) =>
             ))}
           </div>
           <div className="data-buttons">
+              <Link url={`/${entryType}/`} texto="Volver" variante="ver"/>
               <Link url={`/${entryType}/modificar/${id}`} texto="Modificar" variante="modificar"/>
               <Link url={`/${entryType}/del/${id}`} texto="Eliminar" variante="eliminar"/>
           </div>  
