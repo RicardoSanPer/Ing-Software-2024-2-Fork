@@ -8,6 +8,7 @@ import Input from "../../components/forms/Input";
 import Link from "../../components/navegacion/Link";
 import CheckInput from "../../components/forms/CheckInput";
 
+//Formulario para modificar un usuario
 function FormModUsuarios({id})
 {
     let usuario = sample_usuarios[id];
@@ -15,6 +16,7 @@ function FormModUsuarios({id})
 
     const [inputs, setInputs] = useState(usuario);
 
+    //OnChange
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
     
@@ -24,6 +26,7 @@ function FormModUsuarios({id})
       }
       
 
+    //OnSubmit
     const handleSubmit = (event) =>
     {
         event.preventDefault();
