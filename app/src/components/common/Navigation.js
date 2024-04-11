@@ -13,6 +13,7 @@ const Navigation = () =>
     <nav className='nav-bar-container'>
         <Link url="/" texto="Inicio" />
         <Link url="/usuarios" texto="Usuarios" />
+        <Link url="/peliculas" texto="Peliculas" />
     </nav>
 );
 

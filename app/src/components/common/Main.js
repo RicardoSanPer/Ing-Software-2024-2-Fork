@@ -5,6 +5,7 @@ import ReadUsuarios from '../../pages/Usuarios/ReadUsuarios';
 import ModUsuarios from '../../pages/Usuarios/ModUsuarios';
 import CrearUsuarios from '../../pages/Usuarios/CreateUsuario';
 import DelUsuarios from '../../pages/Usuarios/DelUsuario';
+import Peliculas from '../../pages/Peliculas/Peliculas';
 
 //Main. Contiene las rutas de la aplicacion
 const Main = () =>
@@ -16,6 +17,8 @@ const Main = () =>
         <Route path="/usuarios/modificar/:id" Component={ModUsuarios}></Route>
         <Route path="/usuarios/crear" Component={CrearUsuarios}></Route>
         <Route path="/usuarios/del/:id" Component={DelUsuarios}></Route>
+
+        <Route path='/peliculas' Component={Peliculas}></Route>
     </Routes>
 );
 
