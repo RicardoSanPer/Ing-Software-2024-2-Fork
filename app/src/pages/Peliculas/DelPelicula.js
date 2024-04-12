@@ -20,7 +20,7 @@ const DelPeliculas = () =>
         alert("Este registro no existe");
         return <Navigate to="/peliculas" />;
     }
-
+    
     sample_peliculas[id] = null;
     alert("Pelicula eliminado con éxito");
     return <Navigate to="/peliculas" />;
