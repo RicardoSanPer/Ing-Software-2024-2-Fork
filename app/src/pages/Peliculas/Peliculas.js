@@ -28,7 +28,7 @@ const Peliculas = () => {
     return (
         <div>
             <h1>Pagina de Peliculas</h1>
-            <Link url="/usuarios/crear" texto="Crear Nuevo"/>
+            <Link url="/peliculas/crear" texto="Crear Nuevo"/>
             {data}
         </div>
     );

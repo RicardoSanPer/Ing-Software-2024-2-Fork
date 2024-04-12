@@ -8,6 +8,8 @@ import DelUsuarios from '../../pages/Usuarios/DelUsuario';
 import Peliculas from '../../pages/Peliculas/Peliculas';
 import ReadPeliculas from '../../pages/Peliculas/ReadPeliculas';
 import ModPeliculas from '../../pages/Peliculas/ModPeliculas';
+import CrearPeliculas from '../../pages/Peliculas/CreatePelicula';
+import DelPeliculas from '../../pages/Peliculas/DelPelicula';
 
 //Main. Contiene las rutas de la aplicacion
 const Main = () =>
@@ -23,6 +25,8 @@ const Main = () =>
         <Route path='/peliculas' Component={Peliculas}></Route>
         <Route path="/peliculas/ver/:id" Component={ReadPeliculas}></Route>
         <Route path="/peliculas/modificar/:id" Component={ModPeliculas}></Route>
+        <Route path="/peliculas/crear" Component={CrearPeliculas}></Route>
+        <Route path="/peliculas/del/:id" Component={DelPeliculas}></Route>
     </Routes>
 );
 

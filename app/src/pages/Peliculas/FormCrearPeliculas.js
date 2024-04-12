@@ -3,23 +3,26 @@ import sample_peliculas from "../../data/peliculas"
 
 
 import { useNavigate} from 'react-router-dom';
-
 import Input from "../../components/forms/Input";
 import Link from "../../components/navegacion/Link";
 import CheckInput from "../../components/forms/CheckInput";
 import NumberInput from "../../components/forms/NumberInput";
 
 /**
- * Formulario para modificar un registro de usuario existente
- * @param {number} id : id del usuario a modificar
- * @returns 
+ * Form para crear Peliculas
  */
-function FormModPeliculas({id})
+function FormCrearPeliculas()
 {
-    let pelicula= sample_peliculas[id];
     let navigate = useNavigate();
 
-    const [inputs, setInputs] = useState(pelicula);
+    const [inputs, setInputs] = useState(
+        {
+            "nombre": null,
+            "genero":null,
+            "duracion":null,
+            "inventario": 1
+        }
+        );
 
     //OnChange
     const handleChange = (event) => {
@@ -35,8 +38,9 @@ function FormModPeliculas({id})
     const handleSubmit = (event) =>
     {
         event.preventDefault();
-        sample_peliculas[id] = inputs;
-        alert("Pelicula actualizada con éxito.");
+        sample_peliculas.push(inputs);
+        let id = sample_peliculas.length - 1;
+        alert("Pelicula creada con éxito.");
         navigate(`/peliculas/ver/${id}`);
     }
     
@@ -49,10 +53,10 @@ function FormModPeliculas({id})
         <NumberInput name="inventario" label="Inventario" value={inputs.inventario} required={false} onChange={(e) => handleChange(e)}/>
         </div>
         <div className="data-buttons">
-            <Link url={`/peliculas/ver/${id}`} texto="Volver" variante="ver"/>
+            <Link url={`/peliculas/`} texto="Volver" variante="ver"/>
             <input type="submit" className="link-boton link-mod" value="Enviar"/>
         </div>
     </form>);
 };
 
-export default FormModPeliculas;
+export default FormCrearPeliculas;
