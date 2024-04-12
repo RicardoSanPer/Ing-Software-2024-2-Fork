@@ -20,7 +20,7 @@ const Peliculas = () => {
         }
         data.push(
         //agregar todos los datos a la lista
-        <DataSimple id={i} entryType={"usuarios"} dict={
+        <DataSimple id={i} entryType={"peliculas"} dict={
             {"Nombre":sample_peliculas[i].nombre,
             "Inventario":sample_peliculas[i].inventario}
         }/>);

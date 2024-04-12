@@ -6,6 +6,8 @@ import ModUsuarios from '../../pages/Usuarios/ModUsuarios';
 import CrearUsuarios from '../../pages/Usuarios/CreateUsuario';
 import DelUsuarios from '../../pages/Usuarios/DelUsuario';
 import Peliculas from '../../pages/Peliculas/Peliculas';
+import ReadPeliculas from '../../pages/Peliculas/ReadPeliculas';
+import ModPeliculas from '../../pages/Peliculas/ModPeliculas';
 
 //Main. Contiene las rutas de la aplicacion
 const Main = () =>
@@ -19,6 +21,8 @@ const Main = () =>
         <Route path="/usuarios/del/:id" Component={DelUsuarios}></Route>
 
         <Route path='/peliculas' Component={Peliculas}></Route>
+        <Route path="/peliculas/ver/:id" Component={ReadPeliculas}></Route>
+        <Route path="/peliculas/modificar/:id" Component={ModPeliculas}></Route>
     </Routes>
 );
 
