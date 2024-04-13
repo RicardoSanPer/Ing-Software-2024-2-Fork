@@ -28,8 +28,8 @@ const Usuarios = () => {
     return (
         <div>
             <h1>Pagina de Usuarios</h1>
-            <Link url="/usuarios/crear" texto="Crear Nuevo"/>
-            {data}
+            <div className="nav-bar-container"><Link url="/usuarios/crear" texto="Agregar Usuario"/></div>
+            <div className="grid">{data}</div>
         </div>
     );
 };

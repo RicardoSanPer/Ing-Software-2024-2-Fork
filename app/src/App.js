@@ -8,7 +8,7 @@ import Main from "./components/common/Main"
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <h1>Clone Buster</h1>
       <Navigation />
       <Main />
     </div>

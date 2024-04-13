@@ -8,7 +8,7 @@ import Link from "../navegacion/Link"
  * @param {Object} data : Par de llaves y valores que contienen los datos de la entrada
  * @returns : Componente de renderizado
  */
-const Data = ({id, entryType, data}) =>
+const Data = ({id, entryType, data, eliminar=true}) =>
 {
     return(
         <div className="data-container">
@@ -22,7 +22,7 @@ const Data = ({id, entryType, data}) =>
           <div className="data-buttons">
               <Link url={`/${entryType}/`} texto="Volver" variante="ver"/>
               <Link url={`/${entryType}/modificar/${id}`} texto="Modificar" variante="modificar"/>
-              <Link url={`/${entryType}/del/${id}`} texto="Eliminar" variante="eliminar"/>
+              {eliminar && <Link url={`/${entryType}/del/${id}`} texto="Eliminar" variante="eliminar"/>}
           </div>  
       </div>
     );

@@ -21,15 +21,15 @@ const Peliculas = () => {
         data.push(
         //agregar todos los datos a la lista
         <DataSimple id={i} entryType={"peliculas"} dict={
-            {"Nombre":sample_peliculas[i].nombre,
+            {"Titulo":sample_peliculas[i].nombre,
             "Inventario":sample_peliculas[i].inventario}
         }/>);
     }
     return (
         <div>
             <h1>Pagina de Peliculas</h1>
-            <Link url="/peliculas/crear" texto="Crear Nuevo"/>
-            {data}
+            <div className="nav-bar-container"><Link url="/peliculas/crear" texto="Agregar Pelicula"/></div>
+            <div className="grid">{data}</div>
         </div>
     );
 };

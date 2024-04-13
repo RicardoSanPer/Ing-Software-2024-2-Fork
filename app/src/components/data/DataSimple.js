@@ -10,7 +10,7 @@ import Link from "../navegacion/Link"
  * @param {Object} data : Par de llaves y valores que contienen los datos de la entrada
  * @returns : Componente de renderizado
  */
-const DataSimple = ({id, entryType, dict}) =>
+const DataSimple = ({id, entryType, dict, eliminar=true}) =>
 {
     //Contenedor simple de datos. Muestra el id, algunos datos y los botones para ver/modificar/eliminar
     return(
@@ -21,13 +21,14 @@ const DataSimple = ({id, entryType, dict}) =>
             <div className="data-container-data">
                 {Object.entries(dict).map(([key, value]) => (
                 <label className="data-info" key={key}>
-                <b>{key}:</b> {String(value)}
+                <b>{key}: </b> 
+                {String(value)}
                 </label>
             ))}
                 <div className="data-buttons">
                     <Link url={`/${entryType}/ver/${id}`} texto="Ver" variante="ver"/>
                     <Link url={`/${entryType}/modificar/${id}`} texto="Modificar" variante="modificar"/>
-                    <Link url={`/${entryType}/del/${id}`} texto="Eliminar" variante="eliminar"/>
+                    {eliminar && <Link url={`/${entryType}/del/${id}`} texto="Eliminar" variante="eliminar"/>}
                 </div>
             </div>
         </div>
