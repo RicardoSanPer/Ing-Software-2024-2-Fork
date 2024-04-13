@@ -50,7 +50,7 @@ function FormCrearPeliculas()
         <Input type="text" name="nombre" label="Nombre" value={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
         <Input type="text" name="genero" label="Genero" value={inputs.genero} required={false} onChange={(e) => handleChange(e)} />
         <NumberInput name="duracion" label="Inventario" value={inputs.duracion} required={false} onChange={(e) => handleChange(e)}/>
-        <NumberInput name="inventario" label="Inventario" value={inputs.inventario} required={false} onChange={(e) => handleChange(e)}/>
+        <NumberInput name="inventario" label="Duracion (Mins.)" value={inputs.inventario} required={false} onChange={(e) => handleChange(e)}/>
         </div>
         <div className="data-buttons">
             <Link url={`/peliculas/`} texto="Volver" variante="ver"/>

@@ -9,6 +9,7 @@
 
 
     font-size: larger;
+    flex-grow: 1;
 }
 
 .field-text
@@ -23,6 +24,10 @@
 .form-field
 {
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 input[type="checkbox"] 
