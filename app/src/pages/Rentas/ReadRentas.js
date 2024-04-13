@@ -33,7 +33,10 @@ const ReadRentas = () =>
             "Estado" : EstadoRenta(renta)
         };
         return(
+            <div>
+                <h1>Información de Renta</h1>
             <DataRenta id={id} entryType={"rentas"} data={data}/>
+            </div>
         );
     };
 

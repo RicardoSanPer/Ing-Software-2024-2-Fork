@@ -32,7 +32,7 @@ const Rentas = () => {
     }
     return (
         <div>
-            <h1>Pagina de Rentas</h1>
+            <h1>Registros de Rentas</h1>
             <div className="nav-bar-container"><Link url="/rentas/crear" texto="Agregar Renta"/></div>
             <div className="grid">{data}</div>
         </div>

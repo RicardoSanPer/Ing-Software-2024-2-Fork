@@ -38,7 +38,10 @@ const ReadUsuarios = () =>
             data["Superusuario"] = true
         };
         return(
+            <div>
+                <h1>Información de Usuario</h1>
             <Data id={id} entryType={"usuarios"} data={data}/>
+            </div>
         );
     };
 

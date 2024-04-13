@@ -27,7 +27,7 @@ const Peliculas = () => {
     }
     return (
         <div>
-            <h1>Pagina de Peliculas</h1>
+            <h1>Registros de Peliculas</h1>
             <div className="nav-bar-container"><Link url="/peliculas/crear" texto="Agregar Pelicula"/></div>
             <div className="grid">{data}</div>
         </div>

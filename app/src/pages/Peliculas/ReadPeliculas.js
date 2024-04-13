@@ -33,7 +33,10 @@ const ReadPeliculas = () =>
         };
         
         return(
-            <Data id={id} entryType={"peliculas"} data={data}/>
+            <div>
+                <h1>Información de Película</h1>
+                <Data id={id} entryType={"peliculas"} data={data}/>
+            </div>
         );
     };
 

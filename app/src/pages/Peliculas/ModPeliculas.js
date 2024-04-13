@@ -21,7 +21,13 @@ const ModPeliculas = () =>
         return <Navigate to="/peliculas" />;
     }
 
-    return <FormModPeliculas id={id}/>;
+    return (
+    <div>
+        <h1>Modificar Registro de Película</h1>
+        <h2>ID: {id}</h2>
+    <FormModPeliculas id={id}/>
+    </div>
+    );
 };
 
 export default ModPeliculas;

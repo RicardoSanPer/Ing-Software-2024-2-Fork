@@ -21,7 +21,11 @@ const ModUsuarios = () =>
         return <Navigate to="/usuarios" />;
     }
 
-    return <FormModUsuarios id={id}/>;
+    return (
+        <div>
+            <h1>Modificar Registro de Usuario</h1>
+            <h2>ID: {id}</h2><FormModUsuarios id={id}/>
+            </div>);
 };
 
 export default ModUsuarios;

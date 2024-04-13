@@ -27,7 +27,7 @@ const Usuarios = () => {
     }
     return (
         <div>
-            <h1>Pagina de Usuarios</h1>
+            <h1>Registros de Usuarios</h1>
             <div className="nav-bar-container"><Link url="/usuarios/crear" texto="Agregar Usuario"/></div>
             <div className="grid">{data}</div>
         </div>
