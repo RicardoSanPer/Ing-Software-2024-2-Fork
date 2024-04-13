@@ -4,7 +4,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import sample_rentas from "../../data/rentas";
 
 /**
- * Pagina para modificar un registro de usuario
+ * Pagina para modificar un registro de renta
  */
 const ModRentas = () =>
 {

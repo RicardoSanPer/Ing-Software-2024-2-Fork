@@ -8,16 +8,16 @@ import DataRenta from "../../components/data/DataRenta";
 
 
 /**
- * Pagina que despliega información más detallada de un usuario
+ * Pagina que despliega información más detallada de una renta
  */
 const ReadRentas = () =>
     {
-        //Obtener id del usuario a ver
+        //Obtener id de la renta a ver
         let { id } = useParams();
         id = parseInt(id);
         let renta = sample_rentas[id];
 
-        //Regresar a pagina de usuarios si la informacion no existe
+        //Regresar a pagina de rentas si la informacion no existe
         if(!renta)
         {
             alert("Este registro no existe");

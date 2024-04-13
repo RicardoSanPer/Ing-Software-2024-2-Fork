@@ -1,7 +1,7 @@
 import FormCrearRentas from "./FormCrearRentas";
 
 /**
- * Pagina para crear usuarios
+ * Pagina para crear registros de renta
  */
 const CrearRentas = () =>
 {

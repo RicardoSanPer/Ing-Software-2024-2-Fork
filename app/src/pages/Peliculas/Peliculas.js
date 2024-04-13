@@ -6,8 +6,8 @@ import Link from "../../components/navegacion/Link";
 import sample_peliculas from "../../data/peliculas";
 
 /**
- * Pagina principal de usuarios.
- * Muestra una lista con información simplificada de usuarios junto con sus
+ * Pagina principal de peliculas.
+ * Muestra una lista con información simplificada de peliculas junto con sus
  * respectivos botones para ver, modificar o eliminar un registro
  */
 const Peliculas = () => {

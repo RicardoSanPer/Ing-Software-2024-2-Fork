@@ -8,16 +8,16 @@ import sample_peliculas from "../../data/peliculas";
 
 
 /**
- * Pagina que despliega información más detallada de un usuario
+ * Pagina que despliega información más detallada de una pelicula
  */
 const ReadPeliculas = () =>
     {
-        //Obtener id del usuario a ver
+        //Obtener id de la pelicula a ver
         let { id } = useParams();
         id = parseInt(id);
         let pelicula = sample_peliculas[id];
 
-        //Regresar a pagina de usuarios si la informacion no existe
+        //Regresar a pagina de peliculas si la informacion no existe
         if(!pelicula)
         {
             alert("Este registro no existe");

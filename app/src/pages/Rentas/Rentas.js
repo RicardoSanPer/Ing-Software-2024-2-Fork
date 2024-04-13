@@ -6,9 +6,9 @@ import Link from "../../components/navegacion/Link";
 import EstadoRenta from "../../data/rentas_util";
 
 /**
- * Pagina principal de usuarios.
- * Muestra una lista con información simplificada de usuarios junto con sus
- * respectivos botones para ver, modificar o eliminar un registro
+ * Pagina principal de rentas.
+ * Muestra una lista con información simplificada de rentas junto con sus
+ * respectivos botones para ver o modificar un registro
  */
 const Rentas = () => {
     let data = []

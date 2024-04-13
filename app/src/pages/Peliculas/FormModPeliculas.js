@@ -10,8 +10,8 @@ import CheckInput from "../../components/forms/CheckInput";
 import NumberInput from "../../components/forms/NumberInput";
 
 /**
- * Formulario para modificar un registro de usuario existente
- * @param {number} id : id del usuario a modificar
+ * Formulario para modificar un registro de pelicula existente
+ * @param {number} id : id de pelicula a modificar
  * @returns 
  */
 function FormModPeliculas({id})

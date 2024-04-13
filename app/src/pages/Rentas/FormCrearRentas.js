@@ -9,7 +9,7 @@ import CheckInput from "../../components/forms/CheckInput";
 import NumberInput from "../../components/forms/NumberInput";
 
 /**
- * Form para crear usuarios
+ * Form para crear registros de renta
  */
 function FormCrearRentas()
 {
