@@ -1,6 +1,4 @@
-import {React} from "react"
-import sample_usuarios from "../../data/usuarios"   
-
+import {React} from "react" 
 
 import { useParams, Navigate } from 'react-router-dom';
 import sample_rentas from "../../data/rentas";

@@ -13,6 +13,7 @@ import DelPeliculas from '../../pages/Peliculas/DelPelicula';
 import Rentas from '../../pages/Rentas/Rentas';
 import ReadRentas from '../../pages/Rentas/ReadRentas';
 import ModRentas from '../../pages/Rentas/ModRentas';
+import CrearRentas from '../../pages/Rentas/CrearRentas';
 
 //Main. Contiene las rutas de la aplicacion
 const Main = () =>
@@ -34,6 +35,7 @@ const Main = () =>
         <Route path='/rentas' Component={Rentas}></Route>
         <Route path="/rentas/ver/:id" Component={ReadRentas}></Route>
         <Route path="/rentas/modificar/:id" Component={ModRentas}></Route>
+        <Route path="/rentas/crear" Component={CrearRentas}></Route>
     </Routes>
 );
 

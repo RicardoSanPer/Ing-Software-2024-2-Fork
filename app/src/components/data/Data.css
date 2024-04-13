@@ -71,3 +71,8 @@
     row-gap: 20px;
     column-gap: 20px;
 }
+
+.warning
+{
+    border: 2px solid red;
+}

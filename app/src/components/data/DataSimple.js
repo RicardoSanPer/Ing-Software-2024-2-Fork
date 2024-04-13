@@ -10,11 +10,11 @@ import Link from "../navegacion/Link"
  * @param {Object} data : Par de llaves y valores que contienen los datos de la entrada
  * @returns : Componente de renderizado
  */
-const DataSimple = ({id, entryType, dict, eliminar=true}) =>
+const DataSimple = ({id, entryType, dict, eliminar=true, aditionalTags}) =>
 {
     //Contenedor simple de datos. Muestra el id, algunos datos y los botones para ver/modificar/eliminar
     return(
-        <div className="data-container-simple">
+        <div className={`data-container-simple ` + aditionalTags}>
             <div className="data-container-simple-id">
                 <h1>{id}</h1>
             </div>

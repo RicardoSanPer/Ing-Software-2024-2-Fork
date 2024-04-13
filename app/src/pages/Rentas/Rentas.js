@@ -28,7 +28,7 @@ const Rentas = () => {
             {
             "Fecha de Renta":sample_rentas[i].fecha_renta,
             "Estado": message}
-        } eliminar={false}/>);
+        } eliminar={false} aditionalTags={message == "En Retraso" && "warning"}/>);
     }
     return (
         <div>
