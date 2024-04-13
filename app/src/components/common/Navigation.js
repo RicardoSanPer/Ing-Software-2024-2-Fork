@@ -14,6 +14,7 @@ const Navigation = () =>
         <Link url="/" texto="Inicio" />
         <Link url="/usuarios" texto="Usuarios" />
         <Link url="/peliculas" texto="Peliculas" />
+        <Link url="/rentas" texto="Rentas" />
     </nav>
 );
 
