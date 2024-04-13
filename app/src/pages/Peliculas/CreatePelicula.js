@@ -5,10 +5,7 @@ import FormCrearPeliculas from "./FormCrearPeliculas";
  */
 const CrearPeliculas = () =>
 {
-    return (
-    <div>
-        <h1>Registro de Nueva Pelicula</h1>
-        <FormCrearPeliculas/></div>);
+    return (<FormCrearPeliculas/>);
 };
 
 export default CrearPeliculas;

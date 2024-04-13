@@ -6,10 +6,7 @@ import FormCrearUsuarios from "./FormCrearUsuario";
 const CrearUsuarios = () =>
 {
     return (
-    <div>
-        <h1>Creación de Nuevo Usuario</h1>
     <FormCrearUsuarios/>
-    </div>
     );
 };
 

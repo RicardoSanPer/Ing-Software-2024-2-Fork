@@ -46,6 +46,7 @@ function FormCrearPeliculas()
     
     return (
     <form onSubmit={handleSubmit} className="data-container">
+    <h1>Registro de Nueva Pelicula</h1>
         <div className="data-container-data">
         <Input type="text" name="nombre" label="Nombre" value={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
         <Input type="text" name="genero" label="Genero" value={inputs.genero} required={false} onChange={(e) => handleChange(e)} />

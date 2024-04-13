@@ -47,6 +47,8 @@ function FormCrearRentas()
     
     return (
     <form onSubmit={handleSubmit} className="data-container">
+
+        <h1>Creación de Nueva Renta</h1>
         <div className="data-container-data">
         <NumberInput name="idUsuario" label="ID de Usuario" value={inputs.idUsuario} required={true} onChange={handleChange} />
         <NumberInput name="idPelicula" label="ID de Pelicula" value={inputs.idPelicula} required={true} onChange={handleChange} />

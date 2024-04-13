@@ -6,7 +6,6 @@ import { useNavigate} from 'react-router-dom';
 
 import Input from "../../components/forms/Input";
 import Link from "../../components/navegacion/Link";
-import CheckInput from "../../components/forms/CheckInput";
 import NumberInput from "../../components/forms/NumberInput";
 
 /**
@@ -42,6 +41,8 @@ function FormModPeliculas({id})
     
     return (
     <form onSubmit={handleSubmit} className="data-container">
+    <h1>Modificar Registro de Película</h1>
+    <h2>ID: {id}</h2>
         <div className="data-container-data">
         <Input type="text" name="nombre" label="Nombre" value={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
         <Input type="text" name="genero" label="Genero" value={inputs.genero} required={false} onChange={(e) => handleChange(e)} />

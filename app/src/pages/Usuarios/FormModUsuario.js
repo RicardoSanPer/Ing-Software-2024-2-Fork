@@ -41,6 +41,8 @@ function FormModUsuarios({id})
     
     return (
     <form onSubmit={handleSubmit} className="data-container">
+        <h1>Modificar Registro de Usuario</h1>
+            <h2>ID: {id}</h2>
         <div className="data-container-data">
         <Input type="text" name="nombre" label="Nombre" value={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
         <Input type="text" name="apPat" label="Apellido Paterno" value={inputs.apPat} required={true} onChange={(e) => handleChange(e)} />

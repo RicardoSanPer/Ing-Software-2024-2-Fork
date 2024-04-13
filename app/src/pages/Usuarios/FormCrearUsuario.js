@@ -47,6 +47,8 @@ function FormCrearUsuarios()
     
     return (
     <form onSubmit={handleSubmit} className="data-container">
+
+        <h1>Creación de Nuevo Usuario</h1>
         <div className="data-container-data">
         <Input type="text" name="nombre" label="Nombre" value={inputs.nombre} required={true} onChange={(e) => handleChange(e)} />
         <Input type="text" name="apPat" label="Apellido Paterno" value={inputs.apPat} required={true} onChange={(e) => handleChange(e)} />

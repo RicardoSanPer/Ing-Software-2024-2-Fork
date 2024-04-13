@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.title
+{
+  font-size: 30px;
+  background-color: skyblue;
+  background: rgb(0,255,250);
+  background: linear-gradient(28deg, rgba(0,255,250,1) 0%, rgba(0,123,255,1) 100%); 
+  color: white;
+}
+
+h1
+{
+  margin: 0px;
+  padding: 30px;
+}

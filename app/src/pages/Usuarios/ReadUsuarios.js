@@ -40,7 +40,7 @@ const ReadUsuarios = () =>
         return(
             <div>
                 <h1>Información de Usuario</h1>
-            <Data id={id} entryType={"usuarios"} data={data}/>
+                <Data id={id} entryType={"usuarios"} data={data}/>
             </div>
         );
     };

@@ -5,10 +5,7 @@ import FormCrearRentas from "./FormCrearRentas";
  */
 const CrearRentas = () =>
 {
-    return (
-        <div>
-            <h1>Creación de Nueva Renta</h1>
-    <FormCrearRentas/></div>);
+    return (<FormCrearRentas/>);
 };
 
 export default CrearRentas;
